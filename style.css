@@ -8994,3 +8994,55 @@ html[data-theme="dark"] .about-developer {
 .money-jar-card .jar-percentage strong {
     color: #ffffff !important;
 }
+/* PREVENT MOBILE INPUT AUTO-ZOOM */
+
+@media screen and (max-width: 768px) {
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+/* =====================================
+   MONEY JAR - DARK MODE TEXT FIX
+   ===================================== */
+
+html[data-theme="dark"] #allocationModal .modal-box {
+    background: #ffffff !important;
+    color: #142747 !important;
+}
+
+html[data-theme="dark"] #allocationModal h3 {
+    color: #142747 !important;
+}
+
+html[data-theme="dark"] #allocationModal .modal-heading p {
+    color: #52627a !important;
+}
+
+html[data-theme="dark"] #allocationModal .allocation-input-row label {
+    color: #142747 !important;
+}
+
+html[data-theme="dark"] #allocationModal .allocation-input-row input {
+    color: #142747 !important;
+    background: #ffffff !important;
+}
+
+html[data-theme="dark"] #allocationModal .allocation-total,
+html[data-theme="dark"] #allocationModal .allocation-total span {
+    color: #142747 !important;
+}
+
+html[data-theme="dark"] #allocationModal .allocation-total strong {
+    color: #159447 !important;
+}
+
+html[data-theme="dark"] #allocationModal .allocation-message {
+    color: #52627a !important;
+}
+
+html[data-theme="dark"] #allocationModal .primary-button {
+    background: #0c2038 !important;
+    color: #ffffff !important;
+}
