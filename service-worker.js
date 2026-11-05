@@ -1,11 +1,15 @@
-const CACHE_NAME = "pesomate-v1";
+const CACHE_NAME = "pesomate-v2";
 
 const APP_FILES = [
     "./",
     "./index.html",
     "./style.css",
     "./script.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./assets/icons/icon-192.png",
+    "./assets/icons/icon-512.png",
+    "./assets/icons/apple-touch-icon.png",
+    "./assets/icons/favicon-32.png"
 ];
 
 self.addEventListener("install", event => {
