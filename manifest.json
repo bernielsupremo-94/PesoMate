@@ -1,0 +1,11 @@
+{
+  "name": "PESOMATE - Personal Money Companion",
+  "short_name": "PESOMATE",
+  "description": "Your personal money management and budgeting companion.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f7fb",
+  "theme_color": "#092e58"
+}

@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PESOMATE - Your Personal Money Companion</title>
+
+    <meta name="theme-color" content="#092c55">
+    <meta name="description" content="PESOMATE - Your personal money management and budgeting companion.">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- HEADER -->
+<header class="top-header">
+    <div class="brand">
+        <div class="brand-icon">₱</div>
+        <div>
+            <h1>PESO<span>MATE</span></h1>
+            <p>Your Personal Money Companion</p>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <span id="todayDate" class="header-date"></span>
+        <button class="header-icon" aria-label="Notifications">♧</button>
+    </div>
+</header>
+
+    <!-- GREETING -->
+
+    <!-- DASHBOARD -->
+    <main id="mainContent">
+
+        <section id="dashboardPage" class="page active">
+
+<!-- TOTAL AVAILABLE MONEY -->
+<section class="balance-card redesigned-balance-card">
+
+    <div class="balance-main-heading">
+        <div>
+            <h2>Money You Have Available</h2>
+            <p>Your cash received minus your recorded expenses.</p>
+        </div>
+    </div>
+
+    <div class="balance-amount">
+        <h1 id="totalMoney">₱0.00</h1>
+    </div>
+
+    <div class="income-expense redesigned-income-expense">
+
+        <div class="balance-summary-item">
+            <span class="summary-icon income-icon">↓</span>
+            <div>
+                <small>Income Received</small>
+                <strong id="monthlyIncome">₱0.00</strong>
+            </div>
+        </div>
+
+        <div class="balance-summary-divider"></div>
+
+        <div class="balance-summary-item">
+            <span class="summary-icon expense-icon">↑</span>
+            <div>
+                <small>Expenses Recorded</small>
+                <strong id="monthlyExpenses">₱0.00</strong>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Hidden compatibility elements -->
+    <div style="display:none;">
+        <span id="dashboardCashReceived">₱0.00</span>
+        <span id="dashboardCashExpenses">₱0.00</span>
+        <span id="dashboardCashBalance">₱0.00</span>
+    </div>
+
+</section>
+
+
+<!-- HOW YOUR MONEY IS DIVIDED -->
+<section class="section-card money-jar-card redesigned-money-jar">
+
+    <div class="section-heading redesigned-jar-heading">
+
+        <div class="heading-title">
+            <span class="heading-icon">🏺</span>
+            <h3>How Your Money Is Divided</h3>
+        </div>
+
+        <div class="jar-actions">
+
+            <button class="jar-info-button" id="openJarGuide">
+                ⓘ How It Works
+            </button>
+
+            <button class="manage-button" id="manageAllocation">
+                ⚙ Manage
+            </button>
+
+        </div>
+
+    </div>
+
+    <p class="jar-description">
+        Your income is allocated into funds based on your settings.
+    </p>
+
+    <div class="jar-content redesigned-jar-content">
+
+        <div class="money-jar-visual">
+
+            <div class="jar-lid"></div>
+
+            <div class="jar-body">
+
+                <div class="jar-fill" id="jarFill">
+
+                    <div class="jar-segment necessities-segment"
+                         id="necessitiesSegment">
+                    </div>
+
+                    <div class="jar-segment savings-segment"
+                         id="savingsSegment">
+                    </div>
+
+                </div>
+
+                <div class="jar-label">
+                    <strong id="jarPercentage">80/20</strong>
+                    <small>YOUR MONEY</small>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="allocation-details" id="allocationDetails">
+        </div>
+
+    </div>
+
+    <div class="jar-total redesigned-jar-total">
+        <span>Total Allocated Money</span>
+        <strong id="jarTotal">₱0.00</strong>
+    </div>
+
+</section>
+
+
+<!-- MAIN MODULES -->
+
+
+        </section>
+
+        <!-- MY MONEY -->
+        <section id="moneyPage" class="page">
+            <div class="page-heading module-heading">
+    <div>
+        <h2>My Money</h2>
+        <p>Manage your income, expenses and allocations.</p>
+    </div>
+
+    <button class="back-button" data-page="dashboardPage">
+        ← Back
+    </button>
+</div>
+
+            <div class="menu-list">
+                <button data-action="income">💵 Income Management <span>›</span></button>
+                <button data-action="expenses">💸 Expense Management <span>›</span></button>
+                <button id="openMoneyJar">🏺 Money Jar <span>›</span></button>
+            </div>
+        </section>
+<!-- INCOME MANAGEMENT -->
+<section id="incomePage" class="page income-page">
+
+    <!-- PAGE HEADER -->
+    <div class="page-heading module-heading income-page-heading">
+
+        <div class="income-title">
+            <div class="income-title-icon">▤</div>
+            <div>
+                <h2>Income Management</h2>
+                <p>Record and monitor your income.</p>
+            </div>
+        </div>
+
+        <button class="back-button" data-page="moneyPage">
+            ← Back
+        </button>
+
+    </div>
+
+    <!-- MONTHLY INCOME SUMMARY -->
+    <div class="income-summary-card">
+
+        <div class="income-summary-icon">₱</div>
+
+        <div class="income-summary-content">
+            <small>Total Income</small>
+            <h2 id="incomePageMonthlyTotal">₱0.00</h2>
+            <span>Excludes utang collections</span>
+        </div>
+
+    </div>
+
+    <!-- ADD INCOME FORM -->
+<!-- ADD NEW INCOME BUTTON -->
+<button type="button" id="addIncomeButton" class="add-income-button">
+    + ADD NEW INCOME
+</button>
+
+<!-- ADD INCOME FORM -->
+<div class="income-form-container" id="incomeFormContainer" style="display:none;">
+    <div class="income-form-heading">
+    <span class="add-income-icon">+</span>
+    <h3 id="incomeFormTitle">Add New Income</h3>
+</div>
+
+        <div class="income-form-grid">
+
+            <div class="income-field">
+                <label for="incomeDate">Date Received</label>
+                <input type="date" id="incomeDate">
+            </div>
+
+            <div class="income-field">
+                <label for="incomeSource">Income Source</label>
+                <select id="incomeSource">
+                    <option value="Salary">Salary</option>
+                    <option value="Business">Business</option>
+                    <option value="Investments">Investments</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Utang Collection">Cash Received from Debt</option>
+                    <option value="Allowance">Allowance</option>
+                    <option value="Rental">Rental</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <div class="income-field">
+                <label for="incomeDescription">
+                    Description <span class="required">*</span>
+                </label>
+                <input type="text"
+                       id="incomeDescription"
+                       placeholder="Enter income description">
+            </div>
+
+            <div class="income-field">
+                <label for="incomeAmount">
+                    Amount Received (₱) <span class="required">*</span>
+                </label>
+                <input type="number"
+                       id="incomeAmount"
+                       min="0.01"
+                       step="0.01"
+                       placeholder="Enter amount">
+            </div>
+
+            <div class="income-field full-width">
+                <label for="incomeRemarks">Remarks</label>
+                <textarea id="incomeRemarks"
+                          placeholder="Optional remarks"></textarea>
+            </div>
+
+        </div>
+
+        <div class="income-form-buttons">
+
+<button type="button" id="cancelIncomeButton" class="cancel-button">
+    CANCEL
+</button>
+
+<button type="button" id="saveIncomeButton" class="save-income-button">
+    ▣ SAVE INCOME
+</button>
+
+        </div>
+
+    </div>
+
+    <!-- INCOME HISTORY -->
+    <div class="income-history">
+
+        <div class="income-history-heading">
+            <span>☷</span>
+            <h3>Income History</h3>
+        </div>
+
+        <div id="incomeRecordsList"></div>
+
+    </div>
+
+</section>
+<!-- =====================================
+     EXPENSE MANAGEMENT
+===================================== -->
+
+<section id="expensePage" class="page expense-page">
+
+    <!-- PAGE HEADER -->
+    <div class="page-heading module-heading expense-page-heading">
+
+        <div class="expense-title">
+            <div class="expense-title-icon">↗</div>
+
+            <div>
+                <h2>Expense Management</h2>
+                <p>Track and manage your spending.</p>
+            </div>
+        </div>
+
+        <button class="back-button" data-page="moneyPage">
+            ← Back
+        </button>
+
+    </div>
+
+    <!-- MONTHLY EXPENSE SUMMARY -->
+    <div class="expense-summary-card">
+
+        <div class="expense-summary-icon">₱</div>
+
+        <div class="expense-summary-content">
+            <small>Total Expenses</small>
+            <h2 id="expensePageMonthlyTotal">₱0.00</h2>
+            <span id="expenseRecordCount">0 expense records</span>
+        </div>
+        <div class="expense-monthly-notice">
+    <span>ⓘ</span>
+</div>
+
+    </div>
+
+    <!-- EXPENSE CATEGORY SUMMARY -->
+    <div class="expense-category-summary">
+
+        <div class="expense-section-heading">
+            <span>▦</span>
+            <h3>Expense Overview</h3>
+        </div>
+
+        <div id="expenseCategorySummary">
+
+            <div class="expense-empty">
+                Your expense breakdown will appear here.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ADD NEW EXPENSE BUTTON -->
+    <button type="button"
+            id="addExpenseButton"
+            class="add-expense-button">
+
+        ADD NEW EXPENSE
+
+    </button>
+
+    <!-- ADD EXPENSE FORM -->
+    <div class="expense-form-container"
+         id="expenseFormContainer"
+         style="display:none;">
+
+        <div class="expense-form-heading">
+
+            <span class="expense-form-icon">−</span>
+
+            <h3 id="expenseFormTitle">Add New Expense</h3>
+
+        </div>
+
+        <div class="expense-form-grid">
+
+            <!-- EXPENSE DATE -->
+            <div class="expense-field">
+
+                <label for="expenseDate">
+                    Expense Date
+                </label>
+
+                <input type="date" id="expenseDate">
+
+            </div>
+
+            <!-- CATEGORY -->
+            <div class="expense-field">
+
+                <label for="expenseCategory">
+                    Expense Category
+                </label>
+
+                <select id="expenseCategory">
+
+                    <option value="Food & Groceries">Food & Groceries</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Education">Education</option>
+                    <option value="Personal Care">Personal Care</option>
+                    <option value="Communication">Communication</option>
+                    <option value="Debt Payment">Debt Payment</option>
+                    <option value="Others">Others</option>
+
+                </select>
+
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="expense-field full-width">
+
+                <label for="expenseDescription">
+                    Description <span class="required">*</span>
+                </label>
+
+                <input type="text"
+                       id="expenseDescription"
+                       placeholder="What did you spend on?">
+
+            </div>
+
+            <!-- AMOUNT -->
+            <div class="expense-field">
+
+                <label for="expenseAmount">
+                    Amount Spent (₱) <span class="required">*</span>
+                </label>
+
+                <input type="number"
+                       id="expenseAmount"
+                       min="0.01"
+                       step="0.01"
+                       placeholder="Enter amount">
+
+            </div>
+
+            <!-- PAYMENT METHOD -->
+            <div class="expense-field">
+
+                <label for="expensePaymentMethod">
+                    Payment Method
+                </label>
+
+                <select id="expensePaymentMethod">
+
+                    <option value="Cash">Cash</option>
+                    <option value="GCash">GCash</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Others">Others</option>
+
+                </select>
+
+            </div>
+
+            <!-- REMARKS -->
+            <div class="expense-field full-width">
+
+                <label for="expenseRemarks">
+                    Remarks
+                </label>
+
+                <textarea id="expenseRemarks"
+                          placeholder="Optional notes"></textarea>
+
+            </div>
+
+        </div>
+
+        <!-- FORM BUTTONS -->
+        <div class="expense-form-buttons">
+
+            <button type="button"
+                    id="cancelExpenseButton"
+                    class="cancel-button">
+
+                CANCEL
+
+            </button>
+
+            <button type="button"
+                    id="saveExpenseButton"
+                    class="save-expense-button">
+
+                SAVE EXPENSE
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- EXPENSE HISTORY -->
+    <div class="expense-history">
+
+        <div class="expense-history-heading">
+
+            <span>☷</span>
+
+            <h3>Expense History</h3>
+
+        </div>
+
+        <div id="expenseRecordsList">
+
+            <div class="expense-empty">
+                No expense records yet.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- BUDGET AND PLANNING -->
+<section id="planningPage" class="page">
+
+    <div class="page-heading module-heading">
+
+        <div>
+            <h2>Budget & Planning</h2>
+            <p>Plan your expenses and upcoming obligations.</p>
+        </div>
+
+        <button class="back-button" data-page="dashboardPage">
+            ← Back
+        </button>
+
+    </div>
+
+            <div class="menu-list">
+                <button data-action="budget">📊 Budget Plan Simulator <span>›</span></button>
+                <button data-action="grocery">🛒 Grocery Checklist <span>›</span></button>
+                <button data-action="bills">🧾 Bills & Reminders <span>›</span></button>
+            </div>
+        </section>
+<!-- BUDGET PLAN SIMULATOR -->
+<section id="budgetPage" class="page budget-page">
+
+<div class="page-heading module-heading budget-sim-heading">
+    <div>
+        <h2>Budget Plan Simulator</h2>
+        <p>Plan and test your spending budget.</p>
+    </div>
+
+    <div class="sim-header-actions">
+        <button type="button" id="simReset" class="sim-header-reset">
+            ↻ RESET
+        </button>
+
+        <button class="back-button" data-page="planningPage">
+            ← Back
+        </button>
+    </div>
+</div>
+
+    <!-- AVAILABLE BUDGET -->
+    <div class="sim-card sim-budget-input-card">
+        <label for="simBudgetInput">Available Budget (₱)</label>
+        <div class="sim-budget-input-row">
+            <input type="number" id="simBudgetInput"
+                   min="0" step="0.01" placeholder="Enter your budget">
+            <button type="button" id="simSetBudget">SET</button>
+        </div>
+        <small>This is a simulation only. It will not change your actual finances.</small>
+    </div>
+
+    <!-- COMPACT SUMMARY -->
+    <div class="sim-summary-card">
+        <div>
+            <small>Budget Limit</small>
+            <strong id="simBudgetLimit">₱0.00</strong>
+        </div>
+        <div>
+            <small>Selected Expenses</small>
+            <strong id="simSelectedTotal">₱0.00</strong>
+        </div>
+        <div>
+            <small>Remaining</small>
+            <strong id="simRemaining">₱0.00</strong>
+        </div>
+        <div class="sim-status" id="simStatus">SET YOUR BUDGET</div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="sim-progress-track">
+        <div id="simProgressFill"></div>
+    </div>
+    <p class="sim-progress-text" id="simProgressText">0% of budget allocated</p>
+
+    <!-- ADD EXPENSE -->
+    <div class="sim-card">
+        <div class="sim-section-heading">
+            <div>
+                <h3>Planned Expenses</h3>
+                <small>Tick the expenses you want included.</small>
+            </div>
+            <button type="button" id="simAddExpense" class="sim-add-button">
+                + ADD
+            </button>
+        </div>
+
+        <div id="simExpenseForm" class="sim-expense-form" style="display:none;">
+            <label for="simExpenseName">Expense Name</label>
+            <input type="text" id="simExpenseName" placeholder="e.g. Groceries">
+
+            <div class="sim-form-row">
+                <div>
+                    <label for="simExpenseAmount">Amount (₱)</label>
+                    <input type="number" id="simExpenseAmount"
+                           min="0.01" step="0.01" placeholder="0.00">
+                </div>
+                <div>
+                    <label for="simExpenseType">Classification</label>
+                    <select id="simExpenseType">
+                        <option value="Essential">Essential</option>
+                        <option value="Non-Essential">Non-Essential</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sim-form-buttons">
+                <button type="button" id="simCancelExpense">CANCEL</button>
+                <button type="button" id="simSaveExpense">SAVE EXPENSE</button>
+            </div>
+        </div>
+
+        <div id="simExpenseList" class="sim-expense-list">
+            <p class="sim-empty">No planned expenses yet. Add your first expense.</p>
+        </div>
+
+        <div class="sim-list-footer">
+            <span id="simExpenseCount">0 expenses</span>
+            <button type="button" id="simSelectAll">SELECT ALL</button>
+        </div>
+    </div>
+
+    <!-- CLASSIFICATION SUMMARY -->
+    <div class="sim-card sim-breakdown-card">
+        <h3>Expense Breakdown</h3>
+        <div>
+            <span>Essential</span>
+            <strong id="simEssentialTotal">₱0.00</strong>
+        </div>
+        <div>
+            <span>Non-Essential</span>
+            <strong id="simNonEssentialTotal">₱0.00</strong>
+        </div>
+    </div>
+
+    <!-- ACTIONS -->
+<div class="sim-bottom-actions">
+    <button type="button" id="simSaveScenario">SAVE SCENARIO</button>
+</div>
+
+    <!-- SAVED SCENARIOS -->
+    <details class="sim-card sim-scenarios">
+        <summary>Saved Budget Scenarios</summary>
+        <div id="simScenarioList">
+            <p class="sim-empty">No saved scenarios yet.</p>
+        </div>
+    </details>
+
+</section>
+
+<!-- GROCERY CHECKLIST -->
+<section id="groceryPage" class="page grocery-page">
+
+<div class="page-heading module-heading grocery-page-heading">
+
+    <div class="grocery-heading-title">
+        <h2>Grocery Checklist</h2>
+        <p>Plan your shopping and stay within budget.</p>
+    </div>
+
+    <div class="grocery-header-actions">
+
+        <button type="button" id="resetGroceryAll"
+                class="grocery-reset-all">
+            ↻ RESET ALL
+        </button>
+
+        <button class="back-button" data-page="planningPage">
+            ← BACK
+        </button>
+
+    </div>
+
+</div>
+
+    <div class="grocery-budget-card">
+        <small>Planned Grocery Budget</small>
+        <h2 id="groceryBudgetDisplay">₱0.00</h2>
+
+
+        <label for="groceryBudgetInput">Set Your Shopping Budget</label>
+
+        <div class="grocery-budget-input">
+            <input type="number" id="groceryBudgetInput"
+                   min="0" step="0.01" placeholder="Enter budget">
+
+            <button type="button" id="saveGroceryBudget">SAVE</button>
+        </div>
+    </div>
+
+    <div class="grocery-summary-grid">
+        <div>
+            <small>Estimated Total</small>
+            <strong id="groceryEstimatedTotal">₱0.00</strong>
+        </div>
+
+        <div>
+            <small>Budget Remaining</small>
+            <strong id="groceryBudgetRemaining">₱0.00</strong>
+        </div>
+    </div>
+
+    <div class="grocery-list-card">
+
+        <div class="grocery-section-heading">
+            <h3>Shopping List</h3>
+            <p>Add the items you need to buy.</p>
+        </div>
+
+        <button type="button" id="addGroceryItemButton">
+            + ADD GROCERY ITEM
+        </button>
+
+<!-- ADD GROCERY ITEM POPUP -->
+<div id="groceryItemForm" class="grocery-modal-overlay"
+     style="display:none;">
+
+    <div class="grocery-modal-box">
+
+        <div class="grocery-modal-header">
+            <div>
+                <h3>Add Grocery Item</h3>
+                <p>Enter the details of your grocery item.</p>
+            </div>
+
+            <button type="button" id="closeGroceryModal"
+                    class="grocery-modal-close">×</button>
+        </div>
+
+        <div class="grocery-modal-body">
+
+            <label for="groceryItemName">Item Name</label>
+            <input type="text" id="groceryItemName"
+                   placeholder="e.g. Rice">
+
+            <div class="grocery-modal-row">
+
+                <div>
+                    <label for="groceryItemQuantity">Quantity</label>
+                    <input type="number" id="groceryItemQuantity"
+                           min="0.01" step="0.01"
+                           placeholder="Quantity">
+                </div>
+
+                <div>
+                    <label for="groceryItemUnit">Unit</label>
+                    <input type="text" id="groceryItemUnit"
+                           placeholder="e.g. kg">
+                </div>
+
+            </div>
+
+            <label for="groceryItemPrice">Price per Unit (₱)</label>
+            <input type="number" id="groceryItemPrice"
+                   min="0" step="0.01"
+                   placeholder="Enter unit price">
+
+            <div class="grocery-item-total">
+                <small>Estimated Item Total</small>
+                <strong id="groceryItemTotal">₱0.00</strong>
+            </div>
+
+        </div>
+
+        <div class="grocery-form-buttons">
+
+            <button type="button" id="cancelGroceryItem">
+                CANCEL
+            </button>
+
+            <button type="button" id="saveGroceryItem">
+                SAVE ITEM
+            </button>
+
+        </div>
+
+    </div>
+</div>
+        <p id="groceryBudgetWarning" class="grocery-warning"></p>
+
+        <div id="groceryItemsList">
+            <div class="grocery-empty">
+                Your shopping list is empty.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="grocery-actions">
+        <button type="button" id="saveShoppingList">
+            SAVE SHOPPING LIST
+        </button>
+
+        <button type="button" id="viewShoppingHistory">
+            SHOPPING HISTORY
+        </button>
+    </div>
+
+    <div id="groceryHistory" style="display:none;"></div>
+
+</section>
+
+<!-- BILLS AND REMINDERS -->
+<section id="billsPage" class="page bills-page">
+
+<div class="page-heading module-heading bills-page-heading">
+
+    <div class="bills-heading-title">
+        <h2>🧾 Bills & Reminders</h2>
+        <p>Manage your bills and payment deadlines.</p>
+    </div>
+
+    <div class="bills-header-actions">
+
+        <button type="button" id="resetAllBillsButton">
+            ↻ RESET
+        </button>
+
+        <button class="back-button" data-page="planningPage">
+            ← BACK
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- SUMMARY -->
+    <div class="bills-summary-grid">
+
+        <div class="bills-summary-card">
+            <small>Outstanding</small>
+            <strong id="totalOutstanding">₱0.00</strong>
+        </div>
+
+        <div class="bills-summary-card">
+            <small>Upcoming</small>
+            <strong id="upcomingBillsCount">0</strong>
+        </div>
+
+        <div class="bills-summary-card">
+            <small>Overdue</small>
+            <strong id="overdueBillsCount">0</strong>
+        </div>
+
+        <div class="bills-summary-card">
+            <small>Paid</small>
+            <strong id="paidBillsCount">0</strong>
+        </div>
+
+    </div>
+
+    <!-- NECESSITIES FUND -->
+    <div class="bills-fund-card">
+        <small>AVAILABLE NECESSITIES FUND</small>
+        <strong id="billsNecessitiesAvailable">₱0.00</strong>
+    </div>
+
+    <!-- ADD BILL -->
+    <button type="button" id="addBillButton"
+            class="add-bill-button">
+        + ADD NEW BILL
+    </button>
+
+
+<!-- BILL FORM POPUP -->
+<div id="billFormContainer" class="bill-modal-overlay">
+
+    <div class="bill-modal-box">
+
+        <!-- POPUP HEADER -->
+        <div class="bill-modal-header">
+            <div>
+                <h3 id="billFormTitle">Add New Bill</h3>
+                <p>Enter your bill details below.</p>
+            </div>
+
+            <button type="button"
+                    class="bill-modal-close"
+                    id="closeBillButton">×</button>
+        </div>
+
+        <!-- BILL DETAILS -->
+        <div class="bill-form-grid">
+
+            <div class="bill-field full-width">
+                <label for="billName">Bill Name</label>
+                <input type="text"
+                       id="billName"
+                       placeholder="e.g. Electricity Bill">
+            </div>
+
+            <div class="bill-field">
+                <label for="billCategory">Category</label>
+                <select id="billCategory">
+                    <option value="Utilities">Utilities</option>
+                    <option value="Communication">Communication</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Insurance">Insurance</option>
+                    <option value="Education">Education</option>
+                    <option value="Subscription">Subscription</option>
+                    <option value="Loan">Loan</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <div class="bill-field">
+                <label for="billAmount">Amount Due (₱)</label>
+                <input type="number"
+                       id="billAmount"
+                       min="0.01"
+                       step="0.01"
+                       placeholder="Enter amount">
+            </div>
+
+            <div class="bill-field">
+                <label for="billDueDate">Due Date</label>
+                <input type="date" id="billDueDate">
+            </div>
+
+            <div class="bill-field">
+                <label for="billFrequency">Frequency</label>
+                <select id="billFrequency">
+                    <option value="One-time">One-time</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quarterly">Quarterly</option>
+                    <option value="Yearly">Yearly</option>
+                </select>
+            </div>
+
+            <div class="bill-field full-width">
+                <label for="billRemarks">Remarks</label>
+                <textarea id="billRemarks"
+                          placeholder="Optional notes"></textarea>
+            </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="bill-form-buttons">
+
+            <button type="button" id="cancelBillButton">
+                CANCEL
+            </button>
+
+            <button type="button" id="saveBillButton">
+                SAVE BILL
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+    <!-- FILTER -->
+    <div class="bills-filter-heading">
+        <h3>My Bills</h3>
+
+        <select id="billStatusFilter">
+            <option value="All">All Bills</option>
+            <option value="Unpaid">Unpaid</option>
+            <option value="Upcoming">Upcoming</option>
+            <option value="Due Today">Due Today</option>
+            <option value="Overdue">Overdue</option>
+            <option value="Paid">Paid</option>
+        </select>
+    </div>
+
+    <!-- BILL LIST -->
+    <div id="billsList">
+        <div class="bills-empty">
+            No bills recorded yet.
+        </div>
+    </div>
+
+</section>
+
+<!-- FINANCIAL TOOLS -->
+<section id="toolsPage" class="page">
+
+    <div class="page-heading module-heading">
+        <div>
+            <h2>Financial Tools</h2>
+            <p>Make smarter financial decisions.</p>
+        </div>
+
+        <button class="back-button" data-page="dashboardPage">
+            ← Back
+        </button>
+    </div>
+
+    <div class="menu-list">
+
+        <button data-action="survival">
+            🧮 Money Survival Calculator <span>›</span>
+        </button>
+
+        <button data-action="purchase">
+            🛍️ Before You Buy <span>›</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MONEY SURVIVAL CALCULATOR -->
+<section id="survivalPage" class="page">
+
+    <div class="page-heading module-heading survival-heading">
+        <div>
+            <h2>Money Survival Calculator</h2>
+            <p>Manually organize your available money.</p>
+        </div>
+
+        <div class="survival-header-actions">
+            <button type="button" id="resetSurvival">↻ RESET</button>
+            <button class="back-button" data-page="toolsPage">← Back</button>
+        </div>
+    </div>
+
+    <!-- TOTAL AVAILABLE MONEY -->
+    <div class="survival-funds-card">
+
+        <h3>💰 Total Available Money</h3>
+
+<div class="survival-total-entry">
+    <input
+        type="number"
+        id="survivalTotalAvailable"
+        placeholder="Enter total available money"
+        min="0"
+        step="0.01"
+    >
+
+    <button type="button" id="setSurvivalAmount">
+        SET AMOUNT
+    </button>
+</div>
+
+<div class="survival-allocation">
+
+    <h3>🫙 Divide Your Money Jar</h3>
+    <p class="jar-instruction">Adjust the percentages to divide your available money.</p>
+
+    <div class="money-jars-container">
+
+        <!-- NECESSITIES JAR -->
+        <div class="money-jar-card necessities-jar-card">
+
+            <h4>Necessities</h4>
+
+            <div class="money-jar">
+                <div class="jar-lid"></div>
+                <div class="jar-glass">
+                    <div id="necessitiesJarFill" class="jar-fill necessities-fill"></div>
+                    <div class="jar-percentage">
+                        <strong id="necessitiesPercentage">60%</strong>
+                    </div>
+                </div>
+            </div>
+
+            <strong id="necessitiesJarAmount" class="jar-amount">₱0.00</strong>
+
+            <div class="jar-adjust-controls">
+                <button type="button" data-fund="necessities" data-change="-5">−</button>
+                <span>Adjust</span>
+                <button type="button" data-fund="necessities" data-change="5">+</button>
+            </div>
+
+        </div>
+
+
+        <!-- EMERGENCY JAR -->
+        <div class="money-jar-card emergency-jar-card">
+
+            <h4>Emergency Fund</h4>
+
+            <div class="money-jar">
+                <div class="jar-lid"></div>
+                <div class="jar-glass">
+                    <div id="emergencyJarFill" class="jar-fill emergency-fill"></div>
+                    <div class="jar-percentage">
+                        <strong id="emergencyPercentage">40%</strong>
+                    </div>
+                </div>
+            </div>
+
+            <strong id="emergencyJarAmount" class="jar-amount">₱0.00</strong>
+
+            <div class="jar-adjust-controls">
+                <button type="button" data-fund="emergency" data-change="-5">−</button>
+                <span>Adjust</span>
+                <button type="button" data-fund="emergency" data-change="5">+</button>
+            </div>
+
+            <small>Includes savings, health and other funds.</small>
+
+        </div>
+
+    </div>
+
+    <div class="survival-allocation-summary">
+
+        <div>
+            Total Allocated
+            <strong id="survivalAllocatedTotal">₱0.00</strong>
+        </div>
+
+        <div>
+            Undistributed Balance
+            <strong id="survivalUndistributed">₱0.00</strong>
+        </div>
+
+    </div>
+
+    <div id="survivalAllocationMessage" class="survival-result">
+        Enter your available money and adjust your Money Jar.
+    </div>
+
+</div>
+    </div>
+
+    <!-- FUND AVAILABILITY PERIOD -->
+<div class="survival-period-card">
+
+    <h3>📅 Fund Availability Period</h3>
+    <p>How long should your Necessities Fund last?</p>
+
+    <div class="survival-period-inputs">
+
+        <div>
+            <label for="survivalPeriodType">Period</label>
+            <select id="survivalPeriodType">
+                <option value="days">Days</option>
+                <option value="months">Months</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="survivalPeriodValue">Duration</label>
+            <input
+                type="number"
+                id="survivalPeriodValue"
+                min="1"
+                step="1"
+                value="30"
+                placeholder="Enter duration"
+            >
+        </div>
+
+    </div>
+
+    <div class="survival-period-result">
+
+        <small id="survivalPeriodLabel">
+            Daily Necessities Allowance
+        </small>
+
+        <strong id="survivalPeriodAllowance">₱0.00</strong>
+
+        <p id="survivalPeriodFund">
+            Based on your available Necessities Fund.
+        </p>
+
+    </div>
+
+</div>
+
+    <!-- EXPENSE INPUT -->
+    <div class="survival-expense-card">
+
+        <h3>Expenses to Cover</h3>
+        <p>List the expenses you need to pay.</p>
+
+        <div class="survival-input-group">
+            <label for="survivalExpenseName">Expense Description</label>
+            <input type="text"
+                   id="survivalExpenseName"
+                   placeholder="e.g. Food, Electricity, Rent">
+        </div>
+
+        <div class="survival-input-group">
+            <label for="survivalExpenseAmount">Amount (₱)</label>
+            <input type="number"
+                   id="survivalExpenseAmount"
+                   min="0.01"
+                   step="0.01"
+                   placeholder="Enter amount">
+        </div>
+        <!-- EXPENSE FREQUENCY -->
+<div class="survival-frequency-field">
+    <label for="survivalExpenseFrequency">
+        Expense Frequency
+    </label>
+
+    <select id="survivalExpenseFrequency">
+        <option value="once">One-time</option>
+        <option value="daily">Daily</option>
+        <option value="every2days">Every 2 days</option>
+        <option value="weekly">Weekly</option>
+        <option value="every2weeks">Every 2 weeks</option>
+        <option value="monthly">Monthly</option>
+        <option value="every2months">Every 2 months</option>
+        <option value="quarterly">Quarterly</option>
+        <option value="yearly">Yearly</option>
+    </select>
+</div>
+
+        <button type="button" id="addSurvivalExpense">
+            + ADD EXPENSE
+        </button>
+
+        <div id="survivalExpenseList">
+            <p class="survival-empty">No expenses added yet.</p>
+        </div>
+
+    </div>
+
+    <!-- SURVIVAL ASSESSMENT -->
+    <div class="survival-summary-card">
+
+        <h3>Survival Assessment</h3>
+
+        <div class="survival-summary-row">
+            <span>Total Expenses</span>
+            <strong id="survivalTotalExpenses">₱0.00</strong>
+        </div>
+
+        <div class="survival-summary-row">
+            <span>Necessities Fund</span>
+            <strong id="survivalAvailableNecessities">₱0.00</strong>
+        </div>
+
+        <div class="survival-summary-row">
+            <span>Shortfall</span>
+            <strong id="survivalShortfall">₱0.00</strong>
+        </div>
+
+        <div id="survivalResult" class="survival-result">
+            Enter your fund allocations and expenses to begin.
+        </div>
+
+    </div>
+
+    <!-- EMERGENCY FUND APPROVAL -->
+    <div id="survivalEmergencyApproval"
+         class="survival-emergency-approval"
+         style="display:none;">
+
+        <h3>⚠️ Emergency Fund Required</h3>
+
+        <p id="survivalEmergencyMessage"></p>
+
+        <p>Would you like to use your Emergency Fund to cover the shortfall?</p>
+
+        <div class="survival-approval-buttons">
+
+            <button type="button" id="approveEmergencyUse">
+                YES, USE EMERGENCY FUND
+            </button>
+
+            <button type="button" id="protectEmergencyFund">
+                NO, PROTECT MY EMERGENCY FUND
+            </button>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- BEFORE YOU BUY -->
+<section id="purchasePage" class="page purchase-page">
+
+    <div class="purchase-header">
+        <div>
+            <h2>🛍️ Before You Buy</h2>
+            <p>Think wisely before spending your money.</p>
+        </div>
+
+        <div class="purchase-header-buttons">
+            <button class="purchase-back" data-page="toolsPage">
+                ← Back
+            </button>
+
+            <button type="button" id="resetPurchase">
+                ↻ Reset
+            </button>
+        </div>
+    </div>
+
+    <!-- AVAILABLE NECESSITIES FUND -->
+    <div class="purchase-balance-card">
+        <small>YOUR ACTUAL AVAILABLE NECESSITIES FUND</small>
+        <h2 id="purchaseAvailableBalance">₱0.00</h2>
+        <p>Automatically retrieved from your actual Money Jar balance.</p>
+    </div>
+<!-- EXPECTED EXPENSES -->
+<div class="purchase-expected-card">
+
+    <h3>📅 Expected Expenses</h3>
+    <p class="purchase-section-note">
+        List the expenses you expect to pay before making this purchase.
+    </p>
+
+    <div class="purchase-expected-form">
+
+        <div class="purchase-field">
+            <label for="expectedExpenseName">Expense Description</label>
+            <input type="text" id="expectedExpenseName"
+                   placeholder="e.g. Groceries, Electricity, Rent">
+        </div>
+
+        <div class="purchase-field">
+            <label for="expectedExpenseAmount">Expected Amount (₱)</label>
+            <input type="number" id="expectedExpenseAmount"
+                   min="0.01" step="0.01"
+                   placeholder="Enter expected amount">
+        </div>
+
+        <div class="purchase-field">
+            <label for="expectedExpenseDate">Expected Payment Date (Optional)</label>
+            <input type="date" id="expectedExpenseDate">
+        </div>
+
+        <button type="button" id="addExpectedExpense">
+            + ADD EXPECTED EXPENSE
+        </button>
+
+    </div>
+
+    <div id="expectedExpensesList">
+        <p class="purchase-empty">
+            No expected expenses added yet.
+        </p>
+    </div>
+
+    <div class="purchase-expense-summary">
+
+        <div>
+            <span>Actual Available Necessities</span>
+            <strong id="expectedActualBalance">₱0.00</strong>
+        </div>
+
+        <div>
+            <span>Total Expected Expenses</span>
+            <strong id="expectedExpensesTotal">₱0.00</strong>
+        </div>
+
+        <div class="purchase-adjusted-balance">
+            <span>Available After Expected Expenses</span>
+            <strong id="expectedAdjustedBalance">₱0.00</strong>
+        </div>
+
+    </div>
+
+    <p class="purchase-planning-note">
+        Note: These are planned expenses only. They will not be deducted
+        from your actual financial records.
+    </p>
+
+</div>
+
+    <!-- PURCHASE DETAILS -->
+    <div class="purchase-form-card">
+
+        <h3>🛒 Purchase Details</h3>
+
+        <div class="purchase-field">
+            <label for="purchaseItem">Item or Product</label>
+            <input type="text" id="purchaseItem"
+                   placeholder="What do you want to buy?">
+        </div>
+
+        <div class="purchase-field">
+            <label for="purchasePrice">Purchase Price (₱)</label>
+            <input type="number" id="purchasePrice"
+                   min="0.01" step="0.01"
+                   placeholder="Enter purchase price">
+        </div>
+
+        <div class="purchase-field">
+            <label for="purchaseType">Purchase Type</label>
+            <select id="purchaseType">
+                <option value="Need">Need</option>
+                <option value="Want">Want</option>
+            </select>
+        </div>
+
+        <div class="purchase-field">
+            <label for="purchasePriority">Priority</label>
+            <select id="purchasePriority">
+                <option value="High">High Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="Low">Low Priority</option>
+            </select>
+        </div>
+
+        <div class="purchase-field">
+            <label for="purchaseReason">Reason / Additional Details</label>
+            <textarea id="purchaseReason"
+                      placeholder="Why do you want or need this item?"></textarea>
+        </div>
+
+        <button type="button" id="evaluatePurchase">
+            CHECK MY PURCHASE DECISION
+        </button>
+
+    </div>
+
+    <!-- PURCHASE ASSESSMENT -->
+    <div id="purchaseResult" class="purchase-result"
+         style="display:none;">
+
+        <small>YOUR PURCHASE ASSESSMENT</small>
+        <h2 id="purchaseDecision">THINK AGAIN</h2>
+
+        <p id="purchaseAdvice"></p>
+
+<div class="purchase-result-details">
+
+    <div>
+        <small>Actual Available Necessities</small>
+        <strong id="purchaseResultAvailable">₱0.00</strong>
+    </div>
+
+    <div>
+        <small>Expected Expenses</small>
+        <strong id="purchaseResultExpected">₱0.00</strong>
+    </div>
+
+    <div>
+        <small>Adjusted Available Balance</small>
+        <strong id="purchaseResultAdjusted">₱0.00</strong>
+    </div>
+
+    <div>
+        <small>Purchase Price</small>
+        <strong id="purchaseResultPrice">₱0.00</strong>
+    </div>
+
+    <div>
+        <small>Balance After Purchase</small>
+        <strong id="purchaseResultRemaining">₱0.00</strong>
+    </div>
+
+</div>
+
+        <p class="purchase-disclaimer">
+            This is only a purchase assessment.
+            No money will be deducted from your actual records.
+        </p>
+
+        <button type="button" id="savePurchaseDecision">
+            SAVE DECISION
+        </button>
+
+    </div>
+
+    <!-- DECISION HISTORY -->
+    <div class="purchase-history-card">
+
+        <h3>📋 Purchase Decision History</h3>
+
+        <div id="purchaseHistory">
+            <p class="purchase-empty">
+                No purchase decisions recorded yet.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DEBT MANAGER -->
+<section id="utangPage" class="page">
+
+    <div class="page-heading module-heading">
+        <div>
+            <h2>Debt Manager</h2>
+            <p>Manage money owed to you and money you owe.</p>
+        </div>
+
+        <button class="back-button" data-page="dashboardPage">
+            ← Back
+        </button>
+    </div>
+
+    <div class="menu-list">
+
+        <button data-action="receivables">
+            💚 Receivables (Money Owed to You)
+            <span>›</span>
+        </button>
+
+        <button data-action="payables">
+            ❤️ Payables (Money You Owe)
+            <span>›</span>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- RECEIVABLES PAGE -->
+<section id="receivablesPage" class="page">
+
+    <div class="page-heading module-heading">
+        <div>
+            <h2>Receivables</h2>
+            <p>Money Owed to You</p>
+        </div>
+
+        <div class="receivables-header-actions">
+            <button class="back-button" data-page="utangPage">← Back</button>
+            <button id="resetReceivables" class="receivables-reset-button">
+                ↻ ARCHIVE & CLEAR
+            </button>
+        </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="receivables-summary">
+        <div class="receivable-summary-main">
+            <small>TOTAL OUTSTANDING</small>
+            <strong id="receivablesOutstanding">₱0.00</strong>
+        </div>
+
+        <div class="receivable-summary-grid">
+            <div>
+                <small>Unpaid</small>
+                <strong id="receivablesUnpaidCount">0</strong>
+            </div>
+            <div>
+                <small>Partially Paid</small>
+                <strong id="receivablesPartialCount">0</strong>
+            </div>
+            <div>
+                <small>Fully Paid</small>
+                <strong id="receivablesPaidCount">0</strong>
+            </div>
+        </div>
+
+        <div class="receivable-collected">
+            <small>TOTAL COLLECTED</small>
+            <strong id="receivablesCollected">₱0.00</strong>
+        </div>
+    </div>
+
+    <!-- ADD BORROWER -->
+    <button id="addBorrowerButton" class="receivables-add-button">
+        ＋ ADD NEW BORROWER
+    </button>
+
+    <!-- BORROWER FORM -->
+    <div id="borrowerFormContainer"
+         class="receivables-form-card"
+         style="display:none;">
+
+        <h3 id="borrowerFormTitle">Add New Borrower</h3>
+
+        <label for="borrowerName">Borrower's Name *</label>
+        <input type="text" id="borrowerName" placeholder="Enter full name">
+
+        <div id="borrowerWarning" class="borrower-warning"
+             style="display:none;"></div>
+
+        <label for="borrowerRelationship">Relationship *</label>
+        <select id="borrowerRelationship">
+            <option value="">Select relationship</option>
+            <option>Family</option>
+            <option>Relative</option>
+            <option>Friend</option>
+            <option>Colleague</option>
+            <option>Co-worker</option>
+            <option>Neighbor</option>
+            <option>Other</option>
+        </select>
+
+        <label for="borrowerDate">Date Borrowed *</label>
+        <input type="date" id="borrowerDate">
+
+        <label for="borrowerAmount">Amount Borrowed (₱) *</label>
+        <input type="number" id="borrowerAmount"
+               min="0.01" step="0.01" placeholder="0.00">
+
+        <label for="borrowerPurpose">Purpose *</label>
+        <textarea id="borrowerPurpose"
+                  placeholder="What is the money for?"></textarea>
+
+        <label for="borrowerDueDate">When to Pay (Optional)</label>
+        <input type="date" id="borrowerDueDate">
+
+        <label for="borrowerContact">Contact Number (Optional)</label>
+        <input type="tel" id="borrowerContact"
+               placeholder="Enter contact number">
+
+        <div class="receivables-form-actions">
+            <button id="saveBorrowerButton">SAVE BORROWER</button>
+            <button id="cancelBorrowerButton">CANCEL</button>
+        </div>
+    </div>
+
+    <!-- BORROWER RECORDS -->
+    <h3 class="receivables-section-title">Borrower Records</h3>
+
+    <div id="receivablesList">
+        <div class="empty-state">No borrower records yet.</div>
+    </div>
+
+    <!-- TRANSACTION HISTORY / ARCHIVE -->
+    <div class="receivables-archive-section">
+
+        <h3>📁 Transaction History</h3>
+
+        <p class="archive-description">
+            Previously archived borrower records and payment histories.
+        </p>
+
+        <button type="button" id="toggleReceivablesArchive">
+            VIEW ARCHIVED TRANSACTIONS
+        </button>
+
+        <div id="receivablesArchiveContainer" style="display:none;">
+            <div id="receivablesArchiveList"></div>
+        </div>
+
+    </div>
+
+    <!-- RECORD PAYMENT -->
+    <div id="borrowerPaymentContainer"
+         class="receivables-form-card"
+         style="display:none;">
+
+        <h3>Record Payment</h3>
+
+        <div class="payment-borrower-info">
+            <strong id="paymentBorrowerName"></strong>
+            <small>Original Amount: <span id="paymentOriginalAmount"></span></small>
+            <small>Previously Paid: <span id="paymentPreviouslyPaid"></span></small>
+            <strong>Outstanding: <span id="paymentOutstanding"></span></strong>
+        </div>
+
+        <label for="borrowerPaymentDate">Payment Date *</label>
+        <input type="date" id="borrowerPaymentDate">
+
+        <label for="borrowerPaymentAmount">Amount Paid (₱) *</label>
+        <input type="number" id="borrowerPaymentAmount"
+               min="0.01" step="0.01" placeholder="0.00">
+
+        <label for="borrowerPaymentRemarks">Remarks (Optional)</label>
+        <textarea id="borrowerPaymentRemarks"></textarea>
+
+        <div class="receivables-form-actions">
+            <button id="saveBorrowerPayment">SAVE PAYMENT</button>
+            <button id="cancelBorrowerPayment">CANCEL</button>
+        </div>
+    </div>
+
+    <!-- BORROWER PAYMENT HISTORY -->
+    <div id="borrowerHistoryContainer"
+         class="receivables-form-card"
+         style="display:none;">
+
+        <h3>Payment History</h3>
+        <strong id="historyBorrowerName"></strong>
+
+        <div id="borrowerPaymentHistory"></div>
+
+        <button id="closeBorrowerHistory">CLOSE</button>
+    </div>
+
+</section>
+
+<!-- PAYABLES PAGE -->
+<section id="payablesPage" class="page">
+
+    <!-- HEADER -->
+    <div class="page-heading module-heading">
+        <div>
+            <h2>Payables</h2>
+            <p>Money You Owe</p>
+        </div>
+
+        <div class="payables-header-actions">
+            <button class="back-button" data-page="utangPage">
+                ← Back
+            </button>
+
+            <button id="resetPayables" class="payables-reset-button">
+                ↻ ARCHIVE & CLEAR
+            </button>
+        </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="payables-summary">
+
+        <div class="payable-summary-main">
+            <small>TOTAL OUTSTANDING DEBT</small>
+            <strong id="payablesOutstanding">₱0.00</strong>
+        </div>
+
+        <div class="payable-summary-grid">
+
+            <div>
+                <small>Unpaid</small>
+                <strong id="payablesUnpaidCount">0</strong>
+            </div>
+
+            <div>
+                <small>Partially Paid</small>
+                <strong id="payablesPartialCount">0</strong>
+            </div>
+
+            <div>
+                <small>Fully Paid</small>
+                <strong id="payablesPaidCount">0</strong>
+            </div>
+
+        </div>
+
+        <div class="payable-repaid">
+            <small>TOTAL REPAID</small>
+            <strong id="payablesTotalRepaid">₱0.00</strong>
+        </div>
+
+    </div>
+
+    <!-- ADD CREDITOR -->
+    <button id="addCreditorButton" class="payables-add-button">
+        ＋ ADD NEW DEBT
+    </button>
+
+    <!-- CREDITOR FORM -->
+    <div id="creditorFormContainer"
+         class="payables-form-card"
+         style="display:none;">
+
+        <h3 id="creditorFormTitle">Add New Debt</h3>
+
+        <label for="creditorName">Creditor's Name *</label>
+        <input type="text"
+               id="creditorName"
+               placeholder="Enter creditor's full name">
+
+        <label for="creditorRelationship">Relationship / Type *</label>
+        <select id="creditorRelationship">
+
+            <option value="">Select type</option>
+            <option>Family</option>
+            <option>Relative</option>
+            <option>Friend</option>
+            <option>Colleague</option>
+            <option>Bank</option>
+            <option>Lending Company</option>
+            <option>Credit Card</option>
+            <option>Other</option>
+
+        </select>
+
+        <label for="creditorDate">Date Borrowed *</label>
+        <input type="date" id="creditorDate">
+
+        <label for="creditorAmount">Amount Borrowed (₱) *</label>
+        <input type="number"
+               id="creditorAmount"
+               min="0.01"
+               step="0.01"
+               placeholder="0.00">
+
+        <label for="creditorPurpose">Purpose *</label>
+        <textarea id="creditorPurpose"
+                  placeholder="What was the money borrowed for?"></textarea>
+
+        <label for="creditorDueDate">Due Date (Optional)</label>
+        <input type="date" id="creditorDueDate">
+
+        <label for="creditorContact">Contact Number (Optional)</label>
+        <input type="tel"
+               id="creditorContact"
+               placeholder="Enter contact number">
+
+        <div class="payables-form-actions">
+
+            <button id="saveCreditorButton">
+                SAVE DEBT
+            </button>
+
+            <button id="cancelCreditorButton">
+                CANCEL
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- DEBT RECORDS -->
+    <h3 class="payables-section-title">
+        My Outstanding Debts
+    </h3>
+
+    <div id="payablesList">
+        <div class="empty-state">
+            No debt records yet.
+        </div>
+    </div>
+
+    <!-- ARCHIVE -->
+    <div class="payables-archive-section">
+
+        <h3>📁 Transaction History</h3>
+
+        <p class="archive-description">
+            Previously archived debts and repayment histories.
+        </p>
+
+        <button type="button" id="togglePayablesArchive">
+            VIEW ARCHIVED TRANSACTIONS
+        </button>
+
+        <div id="payablesArchiveContainer" style="display:none;">
+            <div id="payablesArchiveList"></div>
+        </div>
+
+    </div>
+
+    <!-- RECORD REPAYMENT -->
+<div id="creditorPaymentContainer"
+     class="payables-payment-modal-overlay"
+     style="display:none;">
+
+    <div class="payables-payment-modal-box">
+
+        <h3>Record Debt Repayment</h3>
+
+        <div class="payables-payment-info">
+
+            <strong id="paymentCreditorName"></strong>
+
+            <small>
+                Original Amount:
+                <span id="paymentCreditorOriginal"></span>
+            </small>
+
+            <small>
+                Previously Paid:
+                <span id="paymentCreditorPreviouslyPaid"></span>
+            </small>
+
+            <strong>
+                Outstanding Balance:
+                <span id="paymentCreditorOutstanding"></span>
+            </strong>
+
+        </div>
+
+        <label for="creditorPaymentDate">Payment Date *</label>
+        <input type="date" id="creditorPaymentDate">
+
+        <label for="creditorPaymentAmount">Amount Paid (₱) *</label>
+        <input type="number"
+               id="creditorPaymentAmount"
+               min="0.01"
+               step="0.01"
+               placeholder="0.00">
+
+        <label for="creditorPaymentRemarks">Remarks (Optional)</label>
+        <textarea id="creditorPaymentRemarks"
+                  placeholder="Additional payment details"></textarea>
+
+        <div class="payables-form-actions">
+
+            <button id="saveCreditorPayment">
+                SAVE REPAYMENT
+            </button>
+
+            <button id="cancelCreditorPayment">
+                CANCEL
+            </button>
+
+        </div>
+
+        <p class="payables-disclaimer">
+            Recording a repayment here only updates your debt record.
+            You must manually record the actual payment in Expense Management.
+        </p>
+
+    </div>
+</div>
+
+
+    <!-- PAYMENT HISTORY -->
+<div id="creditorHistoryContainer"
+     class="payables-payment-modal-overlay"
+     style="display:none;">
+
+    <div class="payables-payment-modal-box payables-history-modal">
+
+        <div class="payables-history-header">
+            <div class="payables-history-icon">📋</div>
+
+            <div>
+                <h3>PAYMENT HISTORY</h3>
+                <p>Repayment records</p>
+            </div>
+        </div>
+
+        <div class="payables-history-creditor">
+            <small>CREDITOR</small>
+            <strong id="historyCreditorName"></strong>
+        </div>
+
+        <div id="payablesHistorySummary"
+             class="payables-history-summary"></div>
+
+        <div id="creditorPaymentHistory"
+             class="payables-history-list"></div>
+
+        <button type="button"
+                id="closeCreditorHistory"
+                class="payables-history-close">
+            ✕ &nbsp; CLOSE HISTORY
+        </button>
+
+    </div>
+</div>
+
+    <!-- ACCOUNTING REMINDER -->
+    <div class="payables-disclaimer-card">
+
+        <strong>💡 Important Reminder</strong>
+
+        <p>
+            Borrowed money will not automatically be added to your
+            available cash. Record the money received manually in
+            Income Management.
+        </p>
+
+        <p>
+            Repayments will not automatically be deducted from your
+            available cash. Record the actual payment manually in
+            Expense Management.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- MORE -->
+<section id="morePage" class="page">
+
+    <div class="page-heading">
+        <h2>More</h2>
+        <p>Personalize and learn more about PESOMATE.</p>
+    </div>
+
+    <div class="menu-list">
+
+        <button data-action="theme">
+            🎨 Theme Selection <span>›</span>
+        </button>
+
+        <button data-action="about">
+            ℹ️ About PESOMATE <span>›</span>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- THEME SELECTION -->
+<section id="themePage" class="page">
+
+    <div class="page-heading module-heading">
+        <div>
+            <h2>🎨 Theme Selection</h2>
+            <p>Choose your preferred PESOMATE appearance.</p>
+        </div>
+
+        <button class="back-button" data-page="morePage">
+            ← Back
+        </button>
+    </div>
+
+    <div class="theme-selection-card">
+
+        <h3>Choose Your Theme</h3>
+        <p>Select how PESOMATE should look on your device.</p>
+
+        <label class="theme-option">
+            <input type="radio" name="appTheme" value="light">
+            <span class="theme-option-icon">☀️</span>
+            <span class="theme-option-details">
+                <strong>Light Mode</strong>
+                <small>Bright background and dark text.</small>
+            </span>
+        </label>
+
+        <label class="theme-option">
+            <input type="radio" name="appTheme" value="dark">
+            <span class="theme-option-icon">🌙</span>
+            <span class="theme-option-details">
+                <strong>Dark Mode</strong>
+                <small>Dark background for comfortable viewing.</small>
+            </span>
+        </label>
+
+        <div class="theme-status" id="themeStatus">
+            Your selected theme will be saved automatically.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT PESOMATE -->
+<section id="aboutPage" class="page">
+
+    <div class="page-heading module-heading">
+        <div>
+            <h2>ℹ️ About PESOMATE</h2>
+            <p>Your Personal Money Companion.</p>
+        </div>
+
+        <button class="back-button" data-page="morePage">
+            ← Back
+        </button>
+    </div>
+
+    <div class="about-card">
+
+        <div class="about-logo">₱</div>
+
+        <h2>PESOMATE</h2>
+        <p class="about-tagline">Your Personal Money Companion</p>
+
+        <div class="about-divider"></div>
+
+        <h3>About the Application</h3>
+
+        <p>
+            PESOMATE is a personal money management application
+            designed to help users organize their finances,
+            monitor income and expenses, manage budgets,
+            and make smarter financial decisions.
+        </p>
+
+        <h3>Our Purpose</h3>
+
+        <p>
+            To make personal money management simpler,
+            more organized, and easier to understand.
+        </p>
+
+<div class="about-version">
+    Application Version 1.0
+</div>
+
+<div class="about-developer">
+    Developed by: Berniel S. Marimon
+</div>
+
+    </div>
+
+</section>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-navigation">
+
+        <button class="nav-item active" data-page="dashboardPage">
+            <span>⌂</span>
+            <small>Home</small>
+        </button>
+
+        <button class="nav-item" data-page="moneyPage">
+            <span>💰</span>
+            <small>My Money</small>
+        </button>
+
+        <button class="nav-item" data-page="planningPage">
+            <span>▦</span>
+            <small>Planning</small>
+        </button>
+
+        <button class="nav-item" data-page="toolsPage">
+            <span>▣</span>
+            <small>Tools</small>
+        </button>
+
+        <button class="nav-item" data-page="morePage">
+            <span>☷</span>
+            <small>More</small>
+        </button>
+
+    </nav>
+
+</div>
+<!-- MONEY JAR GUIDE MODAL -->
+<div class="modal-overlay" id="jarGuideModal">
+    <div class="modal-box">
+
+        <div class="modal-heading">
+            <div>
+                <h3>How Money Jar Works</h3>
+                <p>Give every peso a purpose.</p>
+            </div>
+
+            <button id="closeJarGuide" class="close-button">×</button>
+        </div>
+
+        <div class="jar-guide-content">
+
+            <h4>1. Divide Your Total Income</h4>
+            <p>
+                Your recorded income is automatically divided according
+                to your chosen Money Jar percentages.
+            </p>
+
+            <div class="jar-guide-example">
+                <strong>Example: ₱70,000 Total Income</strong>
+
+                <div>
+                    <span>Necessities — 60%</span>
+                    <strong>₱42,000</strong>
+                </div>
+
+                <div>
+                    <span>Other Funds — 40%</span>
+                    <strong>₱28,000</strong>
+                </div>
+            </div>
+
+            <h4>2. Spend Only From Necessities</h4>
+            <p>
+                Your recorded expenses are deducted from your
+                Necessities allocation. Other Funds remain protected.
+            </p>
+
+            <div class="jar-guide-example">
+                <strong>Example: ₱3,800 Expenses</strong>
+
+                <div>
+                    <span>Necessities Allocation</span>
+                    <strong>₱42,000</strong>
+                </div>
+
+                <div>
+                    <span>Less: Expenses</span>
+                    <strong>₱3,800</strong>
+                </div>
+
+                <div class="jar-guide-remaining">
+                    <span>Remaining Necessities</span>
+                    <strong>₱38,200</strong>
+                </div>
+            </div>
+
+            <h4>3. Customize Your Percentages</h4>
+            <p>
+                You can adjust the allocation according to your
+                financial priorities. You may change the percentages
+                anytime, provided the total equals 100%.
+            </p>
+
+            <button type="button" id="guideManageAllocation"
+                    class="primary-button">
+                ⚙ ADJUST MY ALLOCATION
+            </button>
+
+        </div>
+    </div>
+</div>
+<!-- ALLOCATION SETTINGS MODAL -->
+<div class="modal-overlay" id="allocationModal">
+
+    <div class="modal-box">
+
+        <div class="modal-heading">
+            <div>
+                <h3>Manage Money Jar</h3>
+                <p>Customize your money distribution.</p>
+            </div>
+
+            <button id="closeAllocation" class="close-button">×</button>
+        </div>
+
+        <div id="allocationInputs"></div>
+
+        <div class="allocation-total">
+            <span>Total Distribution</span>
+            <strong id="allocationPercentageTotal">100%</strong>
+        </div>
+
+        <p id="allocationMessage" class="allocation-message">
+            Your allocation must total exactly 100%.
+        </p>
+
+        <button id="saveAllocation" class="primary-button">
+            SAVE ALLOCATION
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

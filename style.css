@@ -1,0 +1,8996 @@
+:root {
+    --navy: #092e58;
+    --blue: #1976e9;
+    --green: #20b957;
+    --purple: #8655db;
+    --red: #e94b63;
+    --background: #f4f7fb;
+    --text: #142747;
+    --muted: #718096;
+    --white: #ffffff;
+}
+/* ========================================
+   PESOMATE DARK MODE
+======================================== */
+
+html[data-theme="dark"] {
+    --navy: #0b1b30;
+    --blue: #3b91ff;
+    --green: #32c875;
+    --purple: #a47af0;
+    --red: #ff657c;
+
+    --background: #101827;
+    --text: #edf2f7;
+    --muted: #a0aec0;
+    --white: #1c293b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: auto;
+    padding-bottom: 75px;
+}
+
+/* HEADER */
+
+.top-header {
+    background: var(--navy);
+    color: white;
+    height: 65px;
+    padding: 8px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 17px 17px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.brand-icon {
+    width: 39px;
+    height: 39px;
+    background: white;
+    color: var(--navy);
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.brand h1 {
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+
+.brand h1 span {
+    color: #35cb68;
+}
+
+.brand p {
+    font-size: 9px;
+    margin-top: 2px;
+}
+
+.header-icon {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 23px;
+}
+
+/* GREETING */
+
+.greeting {
+    padding: 12px 17px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.greeting h2 {
+    font-size: 18px;
+}
+
+.greeting p {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+
+.today-date {
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: var(--navy);
+}
+
+/* TOTAL MONEY */
+
+.balance-card {
+    background: linear-gradient(135deg, #123d70, #08264b);
+    color: white;
+    margin: 0 12px 11px;
+    padding: 14px 16px 10px;
+    border-radius: 17px;
+    box-shadow: 0 4px 12px rgba(9,46,88,.12);
+}
+
+.balance-card > p {
+    font-size: 12px;
+}
+
+.balance-card > h2 {
+    font-size: 30px;
+    margin: 5px 0 12px;
+    overflow-wrap: anywhere;
+}
+
+.income-expense {
+    background: white;
+    color: var(--text);
+    border-radius: 12px;
+    padding: 9px 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.income-expense > div:not(.divider) {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+}
+
+.summary-icon {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+.income-icon {
+    background: #e2f8e9;
+    color: var(--green);
+}
+
+.expense-icon {
+    background: #ffe8ec;
+    color: var(--red);
+}
+
+.income-expense small {
+    display: block;
+    font-size: 9px;
+    color: var(--muted);
+}
+
+.income-expense strong {
+    display: block;
+    font-size: 12px;
+    margin-top: 3px;
+    overflow-wrap: anywhere;
+}
+
+.divider {
+    width: 1px;
+    height: 34px;
+    background: #dce3ed;
+    flex-shrink: 0;
+}
+
+/* GENERAL CARDS */
+
+.section-card {
+    background: var(--white);
+    margin: 0 12px 11px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(22,48,83,.05);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 7px;
+}
+
+.heading-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.heading-icon {
+    color: var(--blue);
+    font-size: 20px;
+}
+
+.section-heading h3 {
+    font-size: 15px;
+}
+
+.manage-button {
+    border: 1px solid #d6dfeb;
+    background: #f8faff;
+    color: var(--navy);
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* MONEY JAR */
+
+.jar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+}
+
+.money-jar-visual {
+    width: 105px;
+    height: 125px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.jar-lid {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 18px;
+    width: 69px;
+    height: 14px;
+    border-radius: 6px 6px 3px 3px;
+    background: linear-gradient(180deg,#f9d66b,#d69b24);
+    border: 1px solid #c58d20;
+}
+
+.jar-body {
+    position: absolute;
+    top: 10px;
+    left: 4px;
+    width: 97px;
+    height: 112px;
+    border: 4px solid rgba(93,151,199,.8);
+    border-radius: 22px 22px 27px 27px;
+    background: rgba(226,244,255,.45);
+    overflow: hidden;
+    box-shadow: inset 4px 0 7px rgba(255,255,255,.8);
+}
+
+.jar-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.jar-segment {
+    width: 100%;
+    flex-shrink: 0;
+    transition: height .3s ease;
+}
+
+.necessities-segment {
+    background: linear-gradient(135deg,#49a2ff,#0961d5);
+}
+
+.savings-segment {
+    background: linear-gradient(135deg,#56d77d,#16a84b);
+}
+
+.jar-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0,0,0,.2);
+    pointer-events: none;
+}
+
+.jar-label strong {
+    font-size: 15px;
+}
+
+.jar-label small {
+    font-size: 8px;
+    margin-top: 3px;
+}
+
+.allocation-details {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 8px;
+}
+
+.allocation-row {
+    display: grid;
+    grid-template-columns: 8px minmax(0,1fr);
+    gap: 5px;
+    align-items: start;
+    margin-bottom: 0;
+}
+
+.allocation-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 3px;
+    margin-top: 3px;
+}
+
+.allocation-name {
+    display: block;
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+.allocation-amount {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 2px;
+    overflow-wrap: anywhere;
+}
+
+.jar-total {
+    border-top: 1px solid #e7edf4;
+    padding-top: 7px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 10px;
+}
+
+.jar-total strong {
+    font-size: 11px;
+}
+
+/* FINANCIAL SNAPSHOTS */
+
+.snapshot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin: 0 12px 10px;
+}
+
+.snapshot-card {
+    padding: 9px 12px;
+    border-radius: 13px;
+    display: grid;
+    grid-template-columns: 23px 1fr;
+    align-items: center;
+    column-gap: 6px;
+    row-gap: 2px;
+}
+
+.receivable-card {
+    background: #e9f9ef;
+    color: #159448;
+}
+
+.payable-card {
+    background: #fff0f2;
+    color: #d43b55;
+}
+
+.snapshot-card > span {
+    font-size: 18px;
+    grid-row: span 2;
+}
+
+.snapshot-card small {
+    color: var(--text);
+    font-size: 10px;
+}
+
+.snapshot-card strong {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+/* SAVINGS GOAL */
+
+.savings-card {
+    background: #f4efff;
+    border: 1px solid #e8dcff;
+    padding: 9px 13px;
+}
+
+.savings-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.savings-heading small {
+    font-size: 9px;
+    color: var(--purple);
+    font-weight: bold;
+}
+
+.savings-heading h3 {
+    margin: 3px 0;
+    font-size: 17px;
+}
+
+.savings-heading p {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.goal-icon {
+    font-size: 26px;
+    color: var(--purple);
+}
+
+.progress-track {
+    width: 100%;
+    height: 6px;
+    background: #ddd5ed;
+    border-radius: 20px;
+    margin: 6px 0 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg,#28bd60,#74d78c);
+    border-radius: 20px;
+}
+
+#savingsPercentage {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+/* MAIN MODULES */
+
+.modules-section {
+    padding: 2px 12px 12px;
+}
+
+.modules-section h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.module-card {
+    border: none;
+    border-radius: 13px;
+    min-height: 68px;
+    padding: 7px 5px;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    column-gap: 5px;
+    color: var(--text);
+    text-align: left;
+}
+
+.module-card span {
+    font-size: 22px;
+    grid-row: span 2;
+    text-align: center;
+}
+
+.module-card strong {
+    font-size: 11px;
+    align-self: end;
+}
+
+.module-card small {
+    font-size: 8px;
+    color: #58677d;
+    align-self: start;
+}
+
+.module-money {
+    background: #e4f8e9;
+}
+
+.module-planning {
+    background: #eee7ff;
+}
+
+.module-tools {
+    background: #fff1d9;
+}
+
+.module-debt {
+    background: #ffe7e9;
+}
+
+/* PAGES */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-heading {
+    padding: 22px 18px;
+}
+
+.page-heading h2 {
+    font-size: 23px;
+    margin-bottom: 6px;
+}
+
+.page-heading p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.menu-list {
+    background: white;
+    margin: 0 12px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.menu-list button {
+    width: 100%;
+    border: none;
+    background: white;
+    padding: 17px 14px;
+    border-bottom: 1px solid #edf0f5;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.menu-list button:last-child {
+    border-bottom: none;
+}
+
+.menu-list button span {
+    color: var(--muted);
+    font-size: 18px;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    height: calc(65px + env(safe-area-inset-bottom));
+    background: var(--navy);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px 4px env(safe-area-inset-bottom);
+    z-index: 50;
+}
+
+.nav-item {
+    background: transparent;
+    border: none;
+    color: white;
+    min-width: 0;
+    flex: 1;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 12px;
+}
+
+.nav-item span {
+    font-size: 19px;
+}
+
+.nav-item small {
+    font-size: 9px;
+}
+
+.nav-item.active {
+    background: #d9f7cf;
+    color: #14652c;
+}
+
+/* MODAL */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5,23,48,.65);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 420px;
+    max-height: 85%;
+    overflow-y: auto;
+    background: white;
+    border-radius: 19px;
+    padding: 18px;
+}
+
+.modal-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.modal-heading h3 {
+    font-size: 18px;
+}
+
+.modal-heading p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.close-button {
+    border: none;
+    background: #f0f3f8;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 21px;
+}
+
+.allocation-input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.allocation-input-row label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.allocation-input-row input {
+    width: 75px;
+    padding: 8px;
+    border: 1px solid #dce3ed;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.allocation-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0 7px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.allocation-message {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.primary-button {
+    width: 100%;
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 11px;
+    font-weight: bold;
+}
+
+.primary-button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 360px) {
+
+    .greeting h2 {
+        font-size: 16px;
+    }
+
+    .greeting p {
+        font-size: 9px;
+    }
+
+    .today-date {
+        font-size: 9px;
+    }
+
+    .balance-card > h2 {
+        font-size: 27px;
+    }
+
+    .allocation-name {
+        font-size: 8px;
+    }
+
+    .allocation-amount {
+        font-size: 9px;
+    }
+
+    .module-card strong {
+        font-size: 10px;
+    }
+}
+
+/* SHORT SCREEN HEIGHTS */
+
+@media (max-height: 740px) {
+
+    .top-header {
+        height: 56px;
+    }
+
+    .brand-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .greeting {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .balance-card {
+        padding: 10px 14px 8px;
+        margin-bottom: 8px;
+    }
+
+    .balance-card > h2 {
+        font-size: 26px;
+        margin: 3px 0 7px;
+    }
+
+    .income-expense {
+        padding: 7px;
+    }
+
+    .section-card {
+        padding: 9px 12px;
+        margin-bottom: 8px;
+    }
+
+    .money-jar-visual {
+        height: 105px;
+        transform: scale(.88);
+        transform-origin: left center;
+        margin-right: -10px;
+    }
+
+    .snapshot-grid {
+        margin-bottom: 8px;
+    }
+
+    .snapshot-card {
+        padding: 7px 10px;
+    }
+
+    .savings-card {
+        padding: 7px 11px;
+    }
+
+    .module-card {
+        min-height: 57px;
+    }
+
+    .modules-section h3 {
+        margin-bottom: 5px;
+    }
+
+    .module-grid {
+        gap: 6px;
+    }
+
+    .bottom-navigation {
+        height: calc(58px + env(safe-area-inset-bottom));
+    }
+
+    .nav-item {
+        height: 47px;
+    }
+}
+/* Small space below the PESOMATE header */
+header {
+    margin-bottom: 10px;
+}
+/* Improve Money Jar percentage visibility */
+.jar-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.jar-label strong {
+    color: #092e58 !important;
+    font-size: 23px !important;
+    font-weight: 900 !important;
+    text-shadow: none !important;
+    line-height: 1.2;
+}
+
+.jar-label small {
+    color: #092e58 !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+    margin-top: 4px;
+}
+/* Larger date and wider spacing in header */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 22px !important;
+}
+
+.header-date {
+    color: white;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    white-space: nowrap;
+}
+
+.header-icon {
+    margin-left: 5px;
+    font-size: 22px;
+}
+/* My Money back button */
+.module-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.back-button {
+    background: #092e58;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+/* =====================================
+   PESOMATE - INCOME MANAGEMENT DESIGN
+===================================== */
+
+.income-page {
+    padding-bottom: 95px;
+}
+
+/* PAGE HEADER */
+
+.income-page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.income-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.income-title-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    background: #e4f1ff;
+    color: #1976e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.income-title h2 {
+    font-size: 23px;
+    color: #092e58;
+    margin: 0;
+}
+
+.income-title p {
+    font-size: 13px;
+    color: #718096;
+    margin: 4px 0 0;
+}
+
+.income-page-heading .back-button {
+    background: white;
+    color: #092e58;
+    border: 1px solid #cbd8e8;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 700;
+}
+
+/* MONTHLY INCOME CARD */
+
+.income-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(120deg, #17639b, #092e58);
+    color: white;
+    padding: 20px;
+    border-radius: 17px;
+    margin-bottom: 16px;
+    box-shadow: 0 5px 14px rgba(9,46,88,.12);
+}
+
+.income-summary-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border: 2px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.income-summary-content small {
+    font-size: 13px;
+    opacity: .9;
+}
+
+.income-summary-content h2 {
+    font-size: clamp(22px, 4vw, 30px);
+    margin: 4px 0;
+    font-weight: 800;
+}
+
+.income-summary-content span {
+    display: inline-block;
+    background: #d5ffe1;
+    color: #126b39;
+    border-radius: 20px;
+    padding: 4px 9px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* INCOME FORM CARD */
+
+.income-form-container {
+    display: block;
+    background: white;
+    padding: 20px;
+    border-radius: 17px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 15px rgba(20,50,80,.07);
+}
+
+.income-form-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.income-form-heading h3 {
+    color: #092e58;
+    font-size: 21px;
+    margin: 0;
+}
+
+.add-income-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* FORM GRID */
+
+.income-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px 18px;
+}
+
+.income-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.income-field label {
+    color: #092e58;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.required {
+    color: #e53935;
+}
+
+.income-field input,
+.income-field select,
+.income-field textarea {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 11px;
+    background: #fff;
+    color: #172b4d;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.income-field input:focus,
+.income-field select:focus,
+.income-field textarea:focus {
+    border-color: #1976e9;
+    box-shadow: 0 0 0 3px rgba(25,118,233,.10);
+}
+
+.income-field textarea {
+    min-height: 65px;
+    resize: vertical;
+}
+
+.income-field.full-width {
+    grid-column: 1 / -1;
+}
+
+/* FORM BUTTONS */
+
+.income-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.income-form-buttons button {
+    min-width: 125px;
+    padding: 12px 18px;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: #e9eef5;
+    color: #092e58;
+    border: 1px solid #d5deea;
+}
+
+.save-income-button {
+    background: #092e58;
+    color: white;
+    border: none;
+}
+
+.save-income-button:active,
+.cancel-button:active {
+    transform: scale(.98);
+}
+
+/* INCOME HISTORY */
+
+.income-history {
+    margin-top: 22px;
+}
+
+.income-history-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+    color: #092e58;
+}
+
+.income-history-heading span {
+    font-size: 25px;
+    color: #1976e9;
+}
+
+.income-history-heading h3 {
+    font-size: 21px;
+    margin: 0;
+}
+
+/* INDIVIDUAL RECORD */
+
+.income-record {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: white;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 12px rgba(20,50,80,.06);
+}
+
+.income-record-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+    gap: 10px;
+}
+
+.income-record-top > div {
+    min-width: 0;
+}
+
+.income-record strong {
+    color: #092e58;
+    font-size: 14px;
+}
+
+.income-record small {
+    display: block;
+    color: #718096;
+    font-size: 12px;
+    margin-top: 4px;
+    overflow-wrap: anywhere;
+}
+
+.income-record-top > strong {
+    color: #16a34a;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.income-record-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.income-record-actions button {
+    width: 39px;
+    height: 39px;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.income-edit {
+    background: #e5f1ff;
+    color: #1976e9;
+}
+
+.income-delete {
+    background: #ffe7e7;
+    color: #dc2626;
+}
+
+.income-empty {
+    text-align: center;
+    color: #718096;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    font-size: 13px;
+}
+
+/* SMALL PHONE ADJUSTMENTS */
+
+@media (max-width: 480px) {
+
+    .income-page-heading {
+        gap: 6px;
+    }
+
+    .income-title {
+        gap: 8px;
+    }
+
+    .income-title-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 21px;
+    }
+
+    .income-title h2 {
+        font-size: 18px;
+    }
+
+    .income-title p {
+        font-size: 11px;
+    }
+
+    .income-page-heading .back-button {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .income-summary-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .income-summary-icon {
+        width: 43px;
+        height: 43px;
+        min-width: 43px;
+        font-size: 22px;
+    }
+
+    .income-form-container {
+        padding: 15px;
+    }
+
+    .income-form-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .income-field.full-width {
+        grid-column: auto;
+    }
+
+    .income-form-heading h3 {
+        font-size: 18px;
+    }
+
+    .income-form-buttons {
+        gap: 8px;
+    }
+
+    .income-form-buttons button {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 7px;
+        font-size: 11px;
+    }
+
+    .income-record {
+        flex-wrap: wrap;
+    }
+
+    .income-record-top {
+        flex-basis: 100%;
+    }
+
+    .income-record-actions {
+        margin-left: auto;
+    }
+}
+/* =========================================
+   PESOMATE - PREMIUM ADD INCOME BUTTON
+========================================= */
+
+.add-income-button {
+    position: relative;
+    width: calc(100% - 24px);
+    min-height: 76px;
+    margin: 18px 12px;
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    background: linear-gradient(120deg, #092e58 0%, #17639b 65%, #087e8b 100%);
+
+    color: #ffffff;
+    border: none;
+    border-radius: 17px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+
+    box-shadow: 0 7px 18px rgba(9, 46, 88, 0.20);
+
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+/* Plus icon */
+.add-income-button::before {
+    content: "+";
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.17);
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 14px;
+
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+/* Decorative arrow */
+.add-income-button::after {
+    content: "›";
+    position: absolute;
+    right: 20px;
+
+    font-size: 30px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+}
+
+/* Hover */
+.add-income-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 22px rgba(9,46,88,0.25);
+}
+
+/* Press */
+.add-income-button:active {
+    transform: scale(0.98);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .add-income-button {
+        min-height: 68px;
+        font-size: 14px;
+        border-radius: 15px;
+    }
+
+    .add-income-button::before {
+        width: 41px;
+        height: 41px;
+        min-width: 41px;
+        font-size: 27px;
+    }
+}
+/* =========================================
+   PESOMATE - EXPENSE MANAGEMENT DESIGN
+========================================= */
+
+.expense-page {
+    padding: 0 12px 100px;
+}
+
+/* PAGE HEADER */
+
+.expense-page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 22px 6px;
+    margin-bottom: 10px;
+}
+
+.expense-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.expense-title-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 13px;
+    background: #ffe8ec;
+    color: #e94b63;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.expense-title h2 {
+    font-size: 23px;
+    color: #092e58;
+    margin: 0;
+}
+
+.expense-title p {
+    font-size: 13px;
+    color: #718096;
+    margin-top: 4px;
+}
+
+.expense-page-heading .back-button {
+    background: white;
+    color: #092e58;
+    border: 1px solid #cbd8e8;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 700;
+}
+
+/* MONTHLY EXPENSE SUMMARY */
+
+.expense-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(120deg, #bd354e, #e94b63);
+    color: white;
+    padding: 20px;
+    border-radius: 17px;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 14px rgba(233,75,99,.16);
+}
+
+.expense-summary-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border: 2px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.expense-summary-content small {
+    font-size: 13px;
+    opacity: .95;
+}
+
+.expense-summary-content h2 {
+    font-size: clamp(22px, 4vw, 30px);
+    margin: 5px 0;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.expense-summary-content span {
+    display: inline-block;
+    background: rgba(255,255,255,.2);
+    color: white;
+    border-radius: 20px;
+    padding: 4px 9px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* EXPENSE OVERVIEW */
+
+.expense-category-summary {
+    background: white;
+    padding: 17px;
+    border-radius: 16px;
+    margin-bottom: 17px;
+    box-shadow: 0 3px 12px rgba(20,50,80,.06);
+}
+
+.expense-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #092e58;
+    margin-bottom: 13px;
+}
+
+.expense-section-heading span {
+    font-size: 22px;
+    color: #e94b63;
+}
+
+.expense-section-heading h3 {
+    font-size: 17px;
+}
+
+.expense-category-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 13px;
+}
+
+.expense-category-row:last-child {
+    border-bottom: none;
+}
+
+.expense-category-row span {
+    color: #52627a;
+}
+
+.expense-category-row strong {
+    color: #d43b55;
+    white-space: nowrap;
+}
+
+.expense-empty {
+    text-align: center;
+    color: #718096;
+    padding: 18px 10px;
+    font-size: 13px;
+}
+
+/* ADD EXPENSE BUTTON */
+
+.add-expense-button {
+    width: 100%;
+    min-height: 72px;
+    margin: 4px 0 20px;
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    background: linear-gradient(
+        120deg,
+        #092e58,
+        #17639b,
+        #bd354e
+    );
+
+    color: white;
+    border: none;
+    border-radius: 16px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .6px;
+
+    box-shadow: 0 7px 18px rgba(9,46,88,.18);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.add-expense-button::before {
+    content: "+";
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,.17);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 13px;
+
+    color: white;
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.add-expense-button::after {
+    content: "›";
+    margin-left: auto;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.add-expense-button:active {
+    transform: scale(.98);
+}
+
+/* EXPENSE FORM */
+
+.expense-form-container {
+    display: block;
+    background: white;
+    padding: 20px;
+    border-radius: 17px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 15px rgba(20,50,80,.07);
+}
+
+.expense-form-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.expense-form-heading h3 {
+    color: #092e58;
+    font-size: 21px;
+    margin: 0;
+}
+
+.expense-form-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ffe8ec;
+    color: #e94b63;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+/* FORM GRID */
+
+.expense-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px 18px;
+}
+
+.expense-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.expense-field label {
+    color: #092e58;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.expense-field input,
+.expense-field select,
+.expense-field textarea {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 11px;
+    background: white;
+    color: #172b4d;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.expense-field input:focus,
+.expense-field select:focus,
+.expense-field textarea:focus {
+    border-color: #e94b63;
+    box-shadow: 0 0 0 3px rgba(233,75,99,.10);
+}
+
+.expense-field textarea {
+    min-height: 65px;
+    resize: vertical;
+}
+
+.expense-field.full-width {
+    grid-column: 1 / -1;
+}
+
+/* FORM BUTTONS */
+
+.expense-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.expense-form-buttons button {
+    min-width: 125px;
+    padding: 12px 18px;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.save-expense-button {
+    background: #e94b63;
+    color: white;
+    border: none;
+}
+
+.expense-form-buttons button:active {
+    transform: scale(.98);
+}
+
+/* EXPENSE HISTORY */
+
+.expense-history {
+    margin-top: 22px;
+}
+
+.expense-history-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+    color: #092e58;
+}
+
+.expense-history-heading span {
+    font-size: 25px;
+    color: #e94b63;
+}
+
+.expense-history-heading h3 {
+    font-size: 21px;
+}
+
+/* EXPENSE RECORD CARDS */
+
+.expense-record-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 12px rgba(20,50,80,.06);
+}
+
+.income-record-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.income-record-details h4 {
+    color: #092e58;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.income-record-details p {
+    color: #718096;
+    font-size: 12px;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+
+.income-record-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.expense-record-amount {
+    color: #e94b63;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.expense-record-card .income-record-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.expense-record-card .income-record-actions button {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.expense-record-card [data-edit-expense] {
+    background: #e5f1ff;
+    color: #1976e9;
+}
+
+.expense-record-card [data-delete-expense] {
+    background: #ffe7e7;
+    color: #dc2626;
+}
+
+.expense-history .empty-state {
+    text-align: center;
+    color: #718096;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 480px) {
+
+    .expense-page-heading {
+        gap: 6px;
+        padding: 18px 2px;
+    }
+
+    .expense-title {
+        gap: 8px;
+    }
+
+    .expense-title-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 21px;
+    }
+
+    .expense-title h2 {
+        font-size: 18px;
+    }
+
+    .expense-title p {
+        font-size: 11px;
+    }
+
+    .expense-page-heading .back-button {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .expense-summary-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .expense-summary-icon {
+        width: 43px;
+        height: 43px;
+        min-width: 43px;
+        font-size: 22px;
+    }
+
+    .expense-category-summary {
+        padding: 14px;
+    }
+
+    .add-expense-button {
+        min-height: 65px;
+        font-size: 13px;
+    }
+
+    .expense-form-container {
+        padding: 15px;
+    }
+
+    .expense-form-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .expense-field.full-width {
+        grid-column: auto;
+    }
+
+    .expense-form-heading h3 {
+        font-size: 18px;
+    }
+
+    .expense-form-buttons {
+        gap: 8px;
+    }
+
+    .expense-form-buttons button {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 7px;
+        font-size: 11px;
+    }
+
+    .expense-record-card {
+        flex-wrap: wrap;
+    }
+
+    .income-record-details {
+        flex-basis: 100%;
+    }
+
+    .income-record-right {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* PREVENT HORIZONTAL OVERFLOW */
+
+.expense-page,
+.expense-page * {
+    max-width: 100%;
+}
+
+.expense-page {
+    overflow-x: hidden;
+}
+/* COMPACT INCOME MANAGEMENT BUTTONS */
+
+.add-income-button {
+    min-height: 55px !important;
+    margin: 12px 12px !important;
+    padding: 8px 14px !important;
+    gap: 11px !important;
+    font-size: 13px !important;
+    border-radius: 13px !important;
+}
+
+.add-income-button::before {
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px !important;
+    font-size: 23px !important;
+    border-radius: 10px !important;
+}
+
+.add-income-button::after {
+    right: 15px !important;
+    font-size: 25px !important;
+}
+
+/* Smaller Edit and Delete buttons */
+
+.income-record-actions button {
+    width: auto !important;
+    min-width: 55px;
+    height: 30px !important;
+    padding: 5px 9px !important;
+    font-size: 10px !important;
+    border-radius: 7px !important;
+}
+/* =====================================
+   PESOMATE - COMPACT INCOME MANAGEMENT
+===================================== */
+
+/* Income summary card */
+.income-page .income-summary-card {
+    padding: 13px 15px !important;
+    min-height: auto !important;
+    margin-bottom: 12px !important;
+    gap: 10px !important;
+    border-radius: 14px !important;
+}
+
+.income-page .income-summary-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    font-size: 21px !important;
+}
+
+.income-page .income-summary-content small {
+    font-size: 11px !important;
+}
+
+.income-page .income-summary-content h2 {
+    font-size: 24px !important;
+    margin: 3px 0 !important;
+}
+
+.income-page .income-summary-content span {
+    font-size: 10px !important;
+}
+
+/* Add New Income button */
+.income-page .add-income-button {
+    min-height: 54px !important;
+    margin: 12px 12px !important;
+    padding: 8px 13px !important;
+    gap: 10px !important;
+    font-size: 13px !important;
+    border-radius: 12px !important;
+}
+
+/* Plus icon */
+.income-page .add-income-button::before {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    font-size: 22px !important;
+    border-radius: 9px !important;
+}
+
+/* Arrow */
+.income-page .add-income-button::after {
+    right: 14px !important;
+    font-size: 23px !important;
+}
+
+/* Income form card */
+.income-page .income-form-container {
+    padding: 13px !important;
+    margin-bottom: 12px !important;
+    border-radius: 13px !important;
+}
+
+.income-page .income-form-grid {
+    gap: 10px !important;
+}
+
+/* Save and Cancel buttons */
+.income-page .income-form-buttons {
+    gap: 8px !important;
+    margin-top: 12px !important;
+}
+
+.income-page .income-form-buttons button {
+    min-height: 38px !important;
+    padding: 8px 10px !important;
+    font-size: 11px !important;
+}
+
+/* Income History heading */
+.income-page .income-history {
+    margin-top: 15px !important;
+}
+
+.income-page .income-history-heading {
+    margin-bottom: 9px !important;
+    gap: 8px !important;
+}
+
+.income-page .income-history-heading h3 {
+    font-size: 18px !important;
+}
+
+/* Individual income records */
+.income-page .income-record {
+    padding: 11px !important;
+    margin-bottom: 8px !important;
+    gap: 9px !important;
+    border-radius: 12px !important;
+}
+
+.income-page .income-record strong {
+    font-size: 13px !important;
+}
+
+.income-page .income-record small {
+    font-size: 10px !important;
+    margin-top: 3px !important;
+}
+
+.income-page .income-record-top > strong {
+    font-size: 13px !important;
+}
+
+/* Edit and Delete buttons */
+.income-page .income-record-actions {
+    gap: 6px !important;
+}
+
+.income-page .income-record-actions button {
+    min-width: 53px !important;
+    width: auto !important;
+    height: 29px !important;
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+    border-radius: 7px !important;
+}
+
+/* Back button */
+.income-page .back-button {
+    padding: 8px 11px !important;
+    font-size: 11px !important;
+}
+/* MOVE INCOME PAGE CONTENT CLOSER TO PESOMATE HEADER */
+
+#incomePage {
+    margin-top: -25px !important;
+}
+/* MOVE EXPENSE PAGE CONTENT CLOSER TO PESOMATE HEADER */
+
+#expensePage {
+    margin-top: -25px !important;
+}
+/* MONEY JAR DASHBOARD BUTTONS */
+
+.jar-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.jar-info-button {
+    border: none;
+    background: #eaf2ff;
+    color: #1976e9;
+    padding: 9px 11px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.jar-guide-content h4 {
+    color: #092e58;
+    margin: 18px 0 7px;
+    font-size: 14px;
+}
+
+.jar-guide-content p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.jar-guide-example {
+    background: #f3f7fc;
+    padding: 13px;
+    border-radius: 12px;
+    margin: 12px 0;
+}
+
+.jar-guide-example > strong {
+    display: block;
+    color: #092e58;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.jar-guide-example div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e1e8f0;
+    font-size: 12px;
+}
+
+.jar-guide-example div:last-child {
+    border-bottom: none;
+}
+
+.jar-guide-example strong {
+    color: #092e58;
+}
+
+.jar-guide-remaining {
+    color: #159447;
+    font-weight: 700;
+}
+/* =================================
+   MONTHLY BUDGET PLANNER
+================================= */
+
+.budget-page {
+    padding-bottom: 110px;
+}
+
+.budget-page .page-heading {
+    margin-bottom: 8px;
+}
+
+.budget-month-card,
+.budget-summary-card,
+.budget-fund-card,
+.budget-category-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 17px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(9, 46, 88, 0.06);
+}
+
+.budget-month-card {
+    padding: 10px 14px;
+    margin-bottom: 12px;
+}
+
+.budget-summary-card {
+    background: #092e58;
+    color: #ffffff;
+}
+
+.budget-summary-card > small {
+    font-size: 12px;
+    opacity: .85;
+}
+
+.budget-summary-card h2 {
+    font-size: 29px;
+    margin: 7px 0 18px;
+}
+
+.budget-summary-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.budget-summary-details div {
+    min-width: 0;
+}
+
+.budget-summary-details small {
+    display: block;
+    font-size: 11px;
+    opacity: .8;
+}
+
+.budget-summary-details strong {
+    display: block;
+    font-size: 15px;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+
+.budget-progress-track {
+    height: 9px;
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 17px 0 8px;
+}
+
+#budgetProgressFill {
+    width: 0%;
+    height: 100%;
+    background: #20b957;
+    border-radius: 20px;
+    transition: width .3s ease;
+}
+
+#budgetProgressText {
+    font-size: 11px;
+}
+
+.budget-fund-card {
+    border-left: 5px solid #20b957;
+}
+
+.budget-fund-card small {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.budget-fund-card h3 {
+    color: #159447;
+    font-size: 23px;
+    margin: 7px 0;
+}
+
+.budget-fund-card p {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.budget-section-heading h3 {
+    color: #092e58;
+    font-size: 16px;
+}
+
+.budget-section-heading p {
+    color: #718096;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.budget-category-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 0;
+    margin-top: 12px;
+    border-top: 1px solid #e5eaf1;
+    font-size: 13px;
+    font-weight: 700;
+    color: #092e58;
+}
+
+.save-budget-button {
+    width: 100%;
+    min-height: 46px;
+    border: none;
+    border-radius: 11px;
+    background: #1976e9;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.budget-message {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .budget-page .page-heading h2 {
+        font-size: 21px;
+    }
+
+    .budget-summary-card h2 {
+        font-size: 25px;
+    }
+}
+/* COMPACT MONTHLY BUDGET BUTTON */
+
+.save-budget-button {
+    width: auto !important;
+    min-width: 180px;
+    min-height: 38px !important;
+    padding: 9px 16px !important;
+    display: block;
+    margin: 12px auto 0;
+    font-size: 11px !important;
+    border-radius: 9px;
+}
+/* =========================================
+   PESOMATE - GROCERY CHECKLIST DESIGN
+========================================= */
+
+.grocery-page {
+    padding: 8px 14px 110px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.grocery-page .page-heading {
+    margin-bottom: 18px;
+}
+
+.grocery-page .page-heading h2 {
+    color: #092e58;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.grocery-page .page-heading p {
+    color: #718096;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* BUDGET CARD */
+
+.grocery-budget-card {
+    background: linear-gradient(135deg, #092e58, #1769aa);
+    color: white;
+    padding: 23px 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 7px 18px rgba(9, 46, 88, .18);
+}
+
+.grocery-budget-card small {
+    display: block;
+    color: #d8eaff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.grocery-budget-card h2 {
+    font-size: 29px;
+    font-weight: 800;
+    margin: 8px 0 20px;
+    letter-spacing: .3px;
+}
+
+.grocery-budget-card label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: #e8f3ff;
+    font-weight: 600;
+}
+
+.grocery-budget-input {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.grocery-budget-input input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 10px;
+    background: white;
+    color: #092e58;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.grocery-budget-input button {
+    border: none;
+    border-radius: 10px;
+    background: #35c58a;
+    color: white;
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* SUMMARY CARDS */
+
+.grocery-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+    margin-bottom: 16px;
+}
+
+.grocery-summary-grid > div {
+    background: white;
+    padding: 16px 13px;
+    border-radius: 15px;
+    border: 1px solid #e7edf5;
+    box-shadow: 0 3px 10px rgba(20, 45, 75, .05);
+    min-width: 0;
+}
+
+.grocery-summary-grid small {
+    display: block;
+    color: #718096;
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+.grocery-summary-grid strong {
+    display: block;
+    color: #092e58;
+    font-size: 17px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.grocery-summary-grid > div:first-child {
+    border-left: 4px solid #2684e8;
+}
+
+.grocery-summary-grid > div:last-child {
+    border-left: 4px solid #35b982;
+}
+
+/* SHOPPING LIST CARD */
+
+.grocery-list-card {
+    background: white;
+    padding: 18px 15px;
+    border-radius: 18px;
+    border: 1px solid #e7edf5;
+    box-shadow: 0 4px 13px rgba(20, 45, 75, .05);
+    margin-bottom: 15px;
+}
+
+.grocery-section-heading h3 {
+    color: #092e58;
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.grocery-section-heading p {
+    color: #8794a5;
+    font-size: 11px;
+    margin-bottom: 16px;
+}
+
+/* ADD ITEM BUTTON */
+
+#addGroceryItemButton {
+    width: 100%;
+    padding: 14px;
+    background: #eaf3ff;
+    color: #1265b5;
+    border: 1px dashed #6aa7e8;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* GROCERY FORM */
+
+#groceryItemForm {
+    background: #f5f8fc;
+    padding: 15px;
+    border-radius: 13px;
+    border: 1px solid #e2eaf4;
+    margin-bottom: 15px;
+}
+
+#groceryItemForm label {
+    display: block;
+    color: #42536a;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 10px 0 6px;
+}
+
+#groceryItemForm input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #dce5ef;
+    border-radius: 9px;
+    background: white;
+    color: #092e58;
+    font-size: 14px;
+    outline: none;
+}
+
+#groceryItemForm input:focus,
+.grocery-budget-input input:focus {
+    border-color: #2684e8;
+    box-shadow: 0 0 0 3px rgba(38,132,232,.12);
+}
+
+.grocery-form-buttons {
+    display: flex;
+    gap: 9px;
+    margin-top: 16px;
+}
+
+.grocery-form-buttons button {
+    flex: 1;
+    padding: 12px 8px;
+    border: none;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+#cancelGroceryItem {
+    background: #e8edf3;
+    color: #536477;
+}
+
+#saveGroceryItem {
+    background: #092e58;
+    color: white;
+}
+
+/* SHOPPING LIST ITEMS */
+
+#groceryItemsList {
+    margin-top: 12px;
+}
+
+#groceryItemsList > div {
+    background: #f8fafd;
+    border: 1px solid #e7edf5;
+    border-radius: 12px;
+    padding: 13px;
+    margin-bottom: 9px;
+    overflow-wrap: anywhere;
+}
+
+.grocery-empty {
+    text-align: center;
+    padding: 25px 12px;
+    color: #98a5b5;
+    font-size: 12px;
+    background: #f8fafd;
+    border: 1px dashed #dce5ef;
+    border-radius: 12px;
+}
+
+/* BUDGET WARNING */
+
+.grocery-warning {
+    color: #c0392b;
+    background: #fff0ee;
+    border-radius: 9px;
+    padding: 10px;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+/* SHOPPING HISTORY AND ACTIONS */
+
+.grocery-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.grocery-actions button {
+    min-width: 0;
+    padding: 13px 8px;
+    border: none;
+    border-radius: 11px;
+    background: #092e58;
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    box-shadow: 0 4px 9px rgba(9,46,88,.12);
+}
+
+.grocery-actions button:last-child {
+    background: #eaf3ff;
+    color: #1265b5;
+}
+
+#groceryHistory {
+    background: white;
+    border: 1px solid #e7edf5;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 20px;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width: 380px) {
+
+    .grocery-page {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .grocery-budget-card {
+        padding: 19px 15px;
+    }
+
+    .grocery-budget-card h2 {
+        font-size: 25px;
+    }
+
+    .grocery-summary-grid strong {
+        font-size: 15px;
+    }
+
+    .grocery-list-card {
+        padding: 14px 11px;
+    }
+
+    .grocery-actions button {
+        font-size: 9px;
+    }
+}
+/* =====================================
+   GROCERY CHECKLIST - COMPACT LAYOUT
+===================================== */
+
+/* Move the entire page upward */
+.grocery-page {
+    padding-top: 5px !important;
+}
+
+/* Reduce space below the page heading */
+.grocery-page .page-heading {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+/* Make the budget card shorter */
+.grocery-budget-card {
+    padding: 15px 18px !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    border-radius: 15px !important;
+}
+
+.grocery-budget-card h2 {
+    font-size: 24px !important;
+    margin: 4px 0 12px !important;
+}
+
+.grocery-budget-card label {
+    margin-bottom: 5px !important;
+    font-size: 11px !important;
+}
+
+.grocery-budget-input input {
+    padding: 9px 12px !important;
+    height: 43px !important;
+    font-size: 14px !important;
+}
+
+.grocery-budget-input button {
+    height: 43px !important;
+    padding: 0 17px !important;
+}
+
+/* Compress the two summary cards */
+.grocery-summary-grid {
+    gap: 9px !important;
+    margin-bottom: 10px !important;
+}
+
+.grocery-summary-grid > div {
+    padding: 11px 12px !important;
+    border-radius: 12px !important;
+}
+
+.grocery-summary-grid small {
+    margin-bottom: 4px !important;
+    font-size: 10px !important;
+}
+
+.grocery-summary-grid strong {
+    font-size: 15px !important;
+}
+
+/* Shopping list card */
+.grocery-list-card {
+    padding: 13px !important;
+    border-radius: 14px !important;
+    margin-bottom: 10px !important;
+}
+
+.grocery-section-heading h3 {
+    font-size: 15px !important;
+    margin-bottom: 3px !important;
+}
+
+.grocery-section-heading p {
+    font-size: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Add item button */
+#addGroceryItemButton {
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Shopping list action buttons */
+.grocery-actions {
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+}
+
+.grocery-actions button {
+    padding: 10px 6px !important;
+    font-size: 10px !important;
+}
+/* =====================================
+   GROCERY BUDGET - INLINE COMPACT DESIGN
+===================================== */
+
+.grocery-budget-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    column-gap: 12px;
+    align-items: center;
+    padding: 13px 16px !important;
+    margin-bottom: 10px !important;
+}
+
+/* LEFT SIDE: PLANNED BUDGET */
+
+.grocery-budget-card > small,
+.grocery-budget-card > h2 {
+    grid-column: 1;
+}
+
+.grocery-budget-card > small {
+    grid-row: 1;
+    font-size: 11px !important;
+}
+
+.grocery-budget-card > h2 {
+    grid-row: 2;
+    font-size: 23px !important;
+    margin: 3px 0 0 !important;
+}
+
+/* RIGHT SIDE: SET SHOPPING BUDGET */
+
+.grocery-budget-card > label {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 10px !important;
+    margin: 0 0 5px !important;
+}
+
+.grocery-budget-card > .grocery-budget-input {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    gap: 6px;
+    min-width: 0;
+}
+
+/* INPUT FIELD */
+
+.grocery-budget-input input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    height: 40px !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    box-sizing: border-box;
+}
+
+/* SAVE BUTTON */
+
+.grocery-budget-input button {
+    flex-shrink: 0;
+    height: 40px !important;
+    padding: 0 13px !important;
+    font-size: 11px !important;
+}
+
+/* SMALL SCREEN ADJUSTMENT */
+
+@media (max-width: 380px) {
+    .grocery-budget-card {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        column-gap: 8px;
+        padding: 12px !important;
+    }
+
+    .grocery-budget-card > h2 {
+        font-size: 19px !important;
+    }
+
+    .grocery-budget-input button {
+        padding: 0 9px !important;
+        font-size: 10px !important;
+    }
+}
+/* =====================================
+   GROCERY ITEM POPUP MODAL
+===================================== */
+
+# groceryItemForm {
+    display: none;
+}
+
+.grocery-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(5, 25, 48, 0.65);
+    padding: 20px 14px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.grocery-modal-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 390px;
+    margin: 12vh auto 20px;
+    border-radius: 18px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 12px 35px rgba(0,0,0,.25);
+    animation: groceryModalAppear .2s ease-out;
+}
+
+@keyframes groceryModalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MODAL HEADER */
+
+.grocery-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.grocery-modal-header h3 {
+    color: #092e58;
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0 0 5px;
+}
+
+.grocery-modal-header p {
+    color: #8794a5;
+    font-size: 11px;
+    margin: 0;
+}
+
+.grocery-modal-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #edf3f9;
+    color: #092e58;
+    font-size: 23px;
+    line-height: 1;
+}
+
+/* MODAL INPUTS */
+
+.grocery-modal-body label {
+    display: block;
+    color: #42536a;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 12px 0 6px;
+}
+
+.grocery-modal-body input {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid #dce5ef;
+    border-radius: 10px;
+    background: #f8fafd;
+    color: #092e58;
+    font-size: 14px;
+    outline: none;
+}
+
+.grocery-modal-body input:focus {
+    border-color: #2684e8;
+    box-shadow: 0 0 0 3px rgba(38,132,232,.12);
+}
+
+/* QUANTITY AND UNIT */
+
+.grocery-modal-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.grocery-modal-row > div {
+    min-width: 0;
+}
+
+/* ITEM TOTAL */
+
+.grocery-item-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eaf3ff;
+    padding: 13px;
+    border-radius: 11px;
+    margin-top: 17px;
+}
+
+.grocery-item-total small {
+    color: #536477;
+    font-size: 11px;
+}
+
+.grocery-item-total strong {
+    color: #1265b5;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+/* MODAL BUTTONS */
+
+.grocery-modal-box .grocery-form-buttons {
+    display: flex;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.grocery-modal-box .grocery-form-buttons button {
+    flex: 1;
+    min-height: 43px;
+    border: none;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.grocery-modal-box #cancelGroceryItem {
+    background: #e8edf3;
+    color: #536477;
+}
+
+.grocery-modal-box #saveGroceryItem {
+    background: #092e58;
+    color: white;
+}
+
+@media (max-width: 380px) {
+    .grocery-modal-box {
+        padding: 16px;
+        margin-top: 9vh;
+    }
+}
+/* =====================================
+   GROCERY ITEM - HORIZONTAL LAYOUT
+===================================== */
+
+.grocery-item-row {
+    display: grid !important;
+    grid-template-columns: 24px minmax(0, 1fr) auto 28px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 12px !important;
+    margin-bottom: 10px;
+    border: 1px solid #e5ebf3;
+    border-radius: 15px;
+    background: #f8fafd;
+}
+
+.grocery-item-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.grocery-item-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+}
+
+.grocery-item-details strong {
+    display: inline-block;
+    color: #092e58;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.grocery-item-details small {
+    display: inline-block;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.grocery-item-row > strong {
+    color: #092e58;
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.grocery-item-row > button {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: #ffecec;
+    color: #d64545;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* SMALL PHONE SCREENS */
+@media (max-width: 420px) {
+
+    .grocery-item-row {
+        grid-template-columns: 22px minmax(0, 1fr) auto 26px;
+        gap: 6px;
+        padding: 12px 8px !important;
+    }
+
+    .grocery-item-details {
+        gap: 5px;
+    }
+
+    .grocery-item-details strong {
+        font-size: 13px;
+    }
+
+    .grocery-item-details small {
+        font-size: 10px;
+    }
+
+    .grocery-item-row > strong {
+        font-size: 12px;
+    }
+}
+/* GROCERY EDIT AND DELETE BUTTONS */
+
+.grocery-item-row {
+    grid-template-columns: 24px minmax(0, 1fr) auto 30px 30px !important;
+}
+
+.grocery-edit-button,
+.grocery-delete-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.grocery-edit-button {
+    background: #e5f0ff;
+    color: #1769bd;
+}
+
+.grocery-delete-button {
+    background: #ffecec;
+    color: #d64545;
+}
+
+@media (max-width: 420px) {
+
+    .grocery-item-row {
+        grid-template-columns: 22px minmax(0, 1fr) auto 27px 27px !important;
+        gap: 5px;
+    }
+
+    .grocery-edit-button,
+    .grocery-delete-button {
+        width: 27px;
+        height: 27px;
+        font-size: 15px;
+    }
+}
+/* GROCERY BUDGET EXCEEDED WARNING - RED DESIGN */
+
+.grocery-warning {
+    background: #fff0f0 !important;
+    border: 1px solid #f5b5b5 !important;
+    border-left: 5px solid #dc2626 !important;
+    color: #b91c1c !important;
+    padding: 12px 14px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+/* WARNING TEXT */
+.grocery-warning strong {
+    color: #991b1b !important;
+}
+.grocery-reset-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 11px;
+    margin: 8px 0 12px;
+    min-height: 30px;
+    border: 1px solid #dc2626;
+    border-radius: 8px;
+    background: #fff0f0;
+    color: #dc2626;
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.grocery-reset-all:active {
+    background: #dc2626;
+    color: white;
+}
+/* =================================
+   GROCERY SHOPPING HISTORY DESIGN
+================================= */
+
+#groceryHistory {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Individual history card */
+.grocery-history-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    border: 1px solid #e2eaf3;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(9, 44, 85, 0.06);
+}
+
+/* Shopping date */
+.grocery-history-card > strong {
+    display: block;
+    color: #092e58;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+/* Planned budget */
+.grocery-history-card p {
+    margin: 0;
+    padding: 10px 12px;
+    background: #f1f6fd;
+    border-radius: 9px;
+    color: #52677f;
+    font-size: 13px;
+}
+
+.grocery-history-card p::first-line {
+    color: #52677f;
+}
+
+/* Reuse button */
+.grocery-history-card button {
+    width: 100%;
+    min-height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 9px;
+    background: #0b315b;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.grocery-history-card button:active {
+    background: #1769bd;
+}
+
+/* Empty history message */
+#groceryHistory:empty {
+    display: none;
+}
+// ========================================
+// BILLS AND REMINDERS
+// ========================================
+
+const BILLS_STORAGE_KEY = "pesomate_bills_v1";
+
+let bills = [];
+
+try {
+    bills = JSON.parse(
+        localStorage.getItem(BILLS_STORAGE_KEY) || "[]"
+    );
+
+    if (!Array.isArray(bills)) bills = [];
+
+} catch (error) {
+    bills = [];
+}
+
+let editingBillId = null;
+
+
+// SAVE BILLS
+function saveBills() {
+    localStorage.setItem(
+        BILLS_STORAGE_KEY,
+        JSON.stringify(bills)
+    );
+}
+
+
+// LOCAL DATE
+function getBillToday() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+
+// FORMAT DATE
+function formatBillDate(date) {
+    if (!date) return "";
+
+    return new Date(date + "T00:00:00")
+        .toLocaleDateString("en-PH", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+}
+
+
+// BILL STATUS
+function getBillStatus(bill) {
+
+    if (bill.paid) return "Paid";
+
+    const today = getBillToday();
+
+    if (bill.dueDate < today) return "Overdue";
+
+    if (bill.dueDate === today) return "Due Today";
+
+    return "Upcoming";
+}
+
+
+// AVAILABLE NECESSITIES
+function updateBillsNecessities() {
+    const element = document.getElementById(
+        "billsNecessitiesAvailable"
+    );
+
+    if (element) {
+        element.textContent = money(getAvailableNecessities());
+    }
+}
+
+
+// RENDER BILLS
+function renderBills() {
+
+    const list = document.getElementById("billsList");
+    if (!list) return;
+
+    const filter = document.getElementById(
+        "billStatusFilter"
+    ).value;
+
+    const unpaid = bills.filter(bill => !bill.paid);
+
+    const outstanding = unpaid.reduce(
+        (sum, bill) => sum + Number(bill.amount || 0),
+        0
+    );
+
+    document.getElementById("totalOutstanding").textContent =
+        money(outstanding);
+
+    document.getElementById("upcomingBillsCount").textContent =
+        unpaid.filter(bill => getBillStatus(bill) === "Upcoming").length;
+
+    document.getElementById("overdueBillsCount").textContent =
+        unpaid.filter(bill => getBillStatus(bill) === "Overdue").length;
+
+    document.getElementById("paidBillsCount").textContent =
+        bills.filter(bill => bill.paid).length;
+
+    updateBillsNecessities();
+
+    const filtered = bills.filter(bill => {
+        const status = getBillStatus(bill);
+
+        if (filter === "All") return true;
+        if (filter === "Unpaid") return !bill.paid;
+
+        return status === filter;
+    }).sort((a, b) => a.dueDate.localeCompare(b.dueDate));
+
+    list.innerHTML = "";
+
+    if (filtered.length === 0) {
+        list.innerHTML = `
+            <div class="bills-empty">
+                No bills found.
+            </div>
+        `;
+        return;
+    }
+
+    filtered.forEach(bill => {
+
+        const status = getBillStatus(bill);
+
+        const card = document.createElement("div");
+        card.className = "bill-card";
+
+        const details = document.createElement("div");
+        details.className = "bill-card-details";
+
+        const name = document.createElement("strong");
+        name.textContent = bill.name;
+
+        const info = document.createElement("small");
+        info.textContent =
+            `${bill.category} • Due ${formatBillDate(bill.dueDate)}`;
+
+        const frequency = document.createElement("small");
+        frequency.textContent = bill.frequency;
+
+        details.append(name, info, frequency);
+
+        const right = document.createElement("div");
+        right.className = "bill-card-right";
+
+        const amount = document.createElement("strong");
+        amount.textContent = money(bill.amount);
+
+        const badge = document.createElement("span");
+        badge.className =
+            "bill-status " + status.toLowerCase().replaceAll(" ", "-");
+        badge.textContent = status;
+
+        right.append(amount, badge);
+
+        const actions = document.createElement("div");
+        actions.className = "bill-card-actions";
+
+        if (!bill.paid) {
+
+            const edit = document.createElement("button");
+            edit.textContent = "EDIT";
+            edit.addEventListener("click", () => editBill(bill.id));
+
+            const pay = document.createElement("button");
+            pay.textContent = "MARK PAID";
+            pay.className = "bill-pay-button";
+            pay.addEventListener("click", () => markBillPaid(bill.id));
+
+            const remove = document.createElement("button");
+            remove.textContent = "DELETE";
+            remove.addEventListener("click", () => deleteBill(bill.id));
+
+            actions.append(edit, pay, remove);
+
+        } else {
+
+            const undo = document.createElement("button");
+            undo.textContent = "UNDO PAYMENT";
+            undo.className = "bill-undo-button";
+            undo.addEventListener("click", () => undoBillPayment(bill.id));
+
+            actions.append(undo);
+        }
+
+        card.append(details, right, actions);
+        list.appendChild(card);
+    });
+}
+
+
+// OPEN BILL FORM
+function openBillForm() {
+
+    editingBillId = null;
+
+    document.getElementById("billFormTitle").textContent =
+        "Add New Bill";
+
+    document.getElementById("billName").value = "";
+    document.getElementById("billCategory").value = "Utilities";
+    document.getElementById("billAmount").value = "";
+    document.getElementById("billDueDate").value = getBillToday();
+    document.getElementById("billFrequency").value = "One-time";
+    document.getElementById("billRemarks").value = "";
+
+    document.getElementById("billFormContainer").style.display =
+        "block";
+
+    document.getElementById("billFormContainer").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+// CLOSE BILL FORM
+function closeBillForm() {
+
+    document.getElementById("billFormContainer").style.display =
+        "none";
+
+    editingBillId = null;
+}
+
+
+// EDIT BILL
+function editBill(id) {
+
+    const bill = bills.find(item => item.id === id);
+
+    if (!bill || bill.paid) return;
+
+    editingBillId = id;
+
+    document.getElementById("billFormTitle").textContent =
+        "Edit Bill";
+
+    document.getElementById("billName").value = bill.name;
+    document.getElementById("billCategory").value = bill.category;
+    document.getElementById("billAmount").value = bill.amount;
+    document.getElementById("billDueDate").value = bill.dueDate;
+    document.getElementById("billFrequency").value = bill.frequency;
+    document.getElementById("billRemarks").value = bill.remarks || "";
+
+    document.getElementById("billFormContainer").style.display =
+        "block";
+
+    document.getElementById("billFormContainer").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+// SAVE BILL
+function saveBill() {
+
+    const name = document.getElementById("billName").value.trim();
+    const category = document.getElementById("billCategory").value;
+    const amount = Number(document.getElementById("billAmount").value);
+    const dueDate = document.getElementById("billDueDate").value;
+    const frequency = document.getElementById("billFrequency").value;
+    const remarks = document.getElementById("billRemarks").value.trim();
+
+    if (
+        !name ||
+        !dueDate ||
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+        showMessage("Please enter a bill name, valid amount and due date.");
+        return;
+    }
+
+    const billData = {
+        name,
+        category,
+        amount,
+        dueDate,
+        frequency,
+        remarks
+    };
+
+    if (editingBillId !== null) {
+
+        bills = bills.map(bill =>
+            bill.id === editingBillId
+                ? { ...bill, ...billData }
+                : bill
+        );
+
+        showMessage("Bill updated successfully.");
+
+    } else {
+
+        bills.push({
+            id: Date.now().toString(),
+            ...billData,
+            paid: false,
+            paymentDate: null,
+            expenseId: null
+        });
+
+        showMessage("Bill added successfully.");
+    }
+
+    saveBills();
+    closeBillForm();
+    renderBills();
+}
+
+
+// MARK BILL AS PAID
+function markBillPaid(id) {
+
+    const bill = bills.find(item => item.id === id);
+
+    if (!bill || bill.paid) return;
+
+    const available = getAvailableNecessities();
+
+    if (bill.amount > available) {
+        showMessage(
+            "Insufficient Necessities Fund. Available: " + money(available)
+        );
+        return;
+    }
+
+    if (!confirm(
+        `Confirm payment of ${bill.name} for ${money(bill.amount)}? This will create an expense record.`
+    )) return;
+
+    const paymentDate = getBillToday();
+
+    // CREATE ONE LINKED EXPENSE RECORD
+    const expenseId = "bill-" + bill.id;
+
+    expenseRecords.push({
+        id: expenseId,
+        date: paymentDate,
+        category: bill.category,
+        description: bill.name,
+        amount: Number(bill.amount),
+        paymentMethod: "Cash",
+        remarks: "Automatically recorded from Bills & Reminders."
+    });
+
+    // MARK BILL AS PAID
+    bill.paid = true;
+    bill.paymentDate = paymentDate;
+    bill.expenseId = expenseId;
+
+    saveBills();
+    saveExpenseRecords();
+
+    renderBills();
+    renderExpenseRecords();
+    renderMoneyJar();
+
+    showMessage("Payment recorded and expense added successfully.");
+}
+
+
+// UNDO PAYMENT
+function undoBillPayment(id) {
+
+    const bill = bills.find(item => item.id === id);
+
+    if (!bill || !bill.paid) return;
+
+    if (!confirm(
+        "Undo this payment? The linked expense record will also be reversed."
+    )) return;
+
+    // REMOVE ONLY THE LINKED EXPENSE
+    expenseRecords = expenseRecords.filter(
+        expense => expense.id !== bill.expenseId
+    );
+
+    bill.paid = false;
+    bill.paymentDate = null;
+    bill.expenseId = null;
+
+    saveBills();
+    saveExpenseRecords();
+
+    renderBills();
+    renderExpenseRecords();
+    renderMoneyJar();
+
+    showMessage("Payment reversed successfully.");
+}
+
+
+// DELETE UNPAID BILL
+function deleteBill(id) {
+
+    const bill = bills.find(item => item.id === id);
+
+    if (!bill || bill.paid) return;
+
+    if (!confirm("Delete this bill?")) return;
+
+    bills = bills.filter(item => item.id !== id);
+
+    saveBills();
+    renderBills();
+
+    showMessage("Bill deleted.");
+}
+
+
+// BUTTON CONNECTIONS
+document.getElementById("addBillButton")
+    .addEventListener("click", openBillForm);
+
+document.getElementById("cancelBillButton")
+    .addEventListener("click", closeBillForm);
+
+document.getElementById("saveBillButton")
+    .addEventListener("click", saveBill);
+
+document.getElementById("billStatusFilter")
+    .addEventListener("change", renderBills);
+
+
+// INITIALIZE BILLS
+renderBills();
+/* =========================================
+   PESOMATE - BILLS & REMINDERS DESIGN
+========================================= */
+
+#billsPage {
+    padding: 8px 14px 110px;
+    overflow-x: hidden;
+}
+
+#billsPage .page-heading {
+    padding: 15px 4px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#billsPage .page-heading h2 {
+    color: #092e58;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#billsPage .page-heading p {
+    color: #718096;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* SUMMARY CARDS */
+
+.bills-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.bills-summary-card {
+    background: white;
+    padding: 14px 12px;
+    border-radius: 13px;
+    border: 1px solid #e5ebf3;
+    box-shadow: 0 3px 10px rgba(9,46,88,.05);
+    min-width: 0;
+}
+
+.bills-summary-card small {
+    display: block;
+    color: #718096;
+    font-size: 11px;
+    margin-bottom: 7px;
+}
+
+.bills-summary-card strong {
+    display: block;
+    color: #092e58;
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.bills-summary-card:first-child {
+    border-left: 4px solid #e94b63;
+}
+
+.bills-summary-card:nth-child(2) {
+    border-left: 4px solid #1976e9;
+}
+
+.bills-summary-card:nth-child(3) {
+    border-left: 4px solid #dc8b24;
+}
+
+.bills-summary-card:nth-child(4) {
+    border-left: 4px solid #20b957;
+}
+
+/* NECESSITIES FUND */
+
+.bills-fund-card {
+    background: linear-gradient(120deg, #092e58, #17639b);
+    color: white;
+    padding: 16px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(9,46,88,.12);
+}
+
+.bills-fund-card small {
+    display: block;
+    color: #d9eaff;
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.bills-fund-card strong {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* ADD BILL BUTTON */
+
+#addBillButton {
+    width: 100%;
+    min-height: 52px;
+    padding: 10px 14px;
+    margin: 4px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(120deg, #092e58, #17639b);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(9,46,88,.15);
+}
+
+#addBillButton::before {
+    content: "+";
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,.18);
+    border-radius: 9px;
+    font-size: 22px;
+}
+
+/* BILL FORM */
+
+#billFormContainer {
+    display: none;
+    background: white;
+    padding: 16px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 14px rgba(9,46,88,.07);
+}
+
+#billFormTitle {
+    color: #092e58;
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+#billFormContainer label {
+    display: block;
+    color: #42536a;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 12px 0 6px;
+}
+
+#billFormContainer input,
+#billFormContainer select,
+#billFormContainer textarea {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #dce5ef;
+    border-radius: 9px;
+    background: #f8fafd;
+    color: #092e58;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+#billFormContainer input:focus,
+#billFormContainer select:focus,
+#billFormContainer textarea:focus {
+    outline: none;
+    border-color: #1976e9;
+    box-shadow: 0 0 0 3px rgba(25,118,233,.10);
+}
+
+/* FORM BUTTONS */
+
+#billFormContainer button {
+    min-height: 40px;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+#cancelBillButton {
+    background: #e9eef5;
+    color: #092e58;
+}
+
+#saveBillButton {
+    background: #092e58;
+    color: white;
+}
+
+/* MY BILLS */
+
+#billsPage h3 {
+    color: #092e58;
+    font-size: 18px;
+    margin: 8px 0 10px;
+}
+
+#billStatusFilter {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 12px;
+    border: 1px solid #dce5ef;
+    border-radius: 9px;
+    background: white;
+    color: #092e58;
+    font-size: 13px;
+}
+
+/* INDIVIDUAL BILL CARD */
+
+.bill-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    background: white;
+    border: 1px solid #e5ebf3;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(9,46,88,.05);
+}
+
+.bill-card-details {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bill-card-details strong {
+    color: #092e58;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.bill-card-details small {
+    color: #718096;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.bill-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+}
+
+.bill-card-right > strong {
+    color: #092e58;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+/* STATUS BADGES */
+
+.bill-status {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.bill-status.upcoming {
+    background: #e5f1ff;
+    color: #1976e9;
+}
+
+.bill-status.due-today {
+    background: #fff2d9;
+    color: #b7791f;
+}
+
+.bill-status.overdue {
+    background: #ffe8ec;
+    color: #d43b55;
+}
+
+.bill-status.paid {
+    background: #e2f8e9;
+    color: #159448;
+}
+
+/* BILL ACTION BUTTONS */
+
+.bill-card-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 7px;
+    padding-top: 10px;
+    border-top: 1px solid #edf0f5;
+}
+
+.bill-card-actions button {
+    flex: 1;
+    min-width: 0;
+    min-height: 34px;
+    padding: 7px 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.bill-card-actions button:first-child {
+    background: #e5f1ff;
+    color: #1976e9;
+}
+
+.bill-pay-button {
+    background: #20b957 !important;
+    color: white !important;
+}
+
+.bill-card-actions button:last-child:not(.bill-pay-button):not(.bill-undo-button) {
+    background: #ffe8ec;
+    color: #d43b55;
+}
+
+.bill-undo-button {
+    background: #fff2d9 !important;
+    color: #a66b13 !important;
+}
+
+/* EMPTY STATE */
+
+.bills-empty {
+    background: white;
+    border: 1px dashed #cbd8e8;
+    border-radius: 13px;
+    padding: 25px 15px;
+    text-align: center;
+    color: #718096;
+    font-size: 12px;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width: 380px) {
+    #billsPage {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .bills-summary-card {
+        padding: 12px 10px;
+    }
+
+    .bills-summary-card strong {
+        font-size: 15px;
+    }
+
+    .bill-card {
+        padding: 11px;
+        gap: 8px;
+    }
+
+    .bill-card-actions button {
+        font-size: 9px;
+        padding: 7px 3px;
+    }
+}
+
+/* PREVENT HORIZONTAL SCROLLING */
+
+#billsPage,
+#billsPage * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#billsPage {
+    overflow-x: hidden;
+}
+/* COMPACT BILLS MODAL */
+
+#billFormContainer.bill-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    background: rgba(5, 24, 48, .72);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.bill-modal-box {
+    width: 100%;
+    max-width: 390px;
+    margin: 25px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.bill-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.bill-modal-header h3 {
+    margin: 0;
+    font-size: 17px;
+    color: #092e58;
+}
+
+.bill-modal-header p {
+    margin: 4px 0 0;
+    font-size: 11px;
+    color: #718096;
+}
+
+.bill-modal-close {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #edf2f7;
+    color: #092e58;
+    font-size: 21px;
+}
+
+#billFormContainer .bill-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+#billFormContainer .bill-field {
+    min-width: 0;
+}
+
+#billFormContainer .bill-field.full-width {
+    grid-column: 1 / -1;
+}
+
+#billFormContainer label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #42536a;
+}
+
+#billFormContainer input,
+#billFormContainer select,
+#billFormContainer textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px;
+    border: 1px solid #dce5ef;
+    border-radius: 8px;
+    background: #f8fafd;
+    color: #092e58;
+    font-size: 13px;
+}
+
+#billFormContainer textarea {
+    min-height: 45px;
+}
+
+#billFormContainer .bill-form-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 13px;
+}
+
+#billFormContainer .bill-form-buttons button {
+    flex: 1;
+    min-height: 37px;
+    border: none;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+#cancelBillButton {
+    background: #e9eef5;
+    color: #092e58;
+}
+
+#saveBillButton {
+    background: #092e58;
+    color: white;
+}
+
+@media (max-width: 380px) {
+    .bill-modal-box {
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    #billFormContainer .bill-form-grid {
+        gap: 7px;
+    }
+}
+/* FINAL RESPONSIVE BILL POPUP */
+
+#billFormContainer .bill-modal-box {
+    width: calc(100% - 24px);
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+}
+
+/* MOBILE PHONES */
+@media (max-width: 600px) {
+    #billFormContainer {
+        padding: 10px;
+    }
+
+    #billFormContainer .bill-modal-box {
+        width: 100%;
+        max-width: 360px;
+        margin: 15px auto;
+        padding: 14px;
+    }
+
+    #billFormContainer .bill-form-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    #billFormContainer .bill-field.full-width {
+        grid-column: auto;
+    }
+
+    #billFormContainer input,
+    #billFormContainer select,
+    #billFormContainer textarea {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+/* RESET ALL BILLS BUTTON */
+
+#resetAllBillsButton {
+    background: #fff0f0;
+    color: #c0392b;
+    border: 1px solid #e5b7b7;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 38px;
+    min-width: 85px;
+    box-sizing: border-box;
+}
+
+#resetAllBillsButton:active {
+    background: #dc3545;
+    color: white;
+}
+/* BILLS PAGE HEADER */
+.bills-page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.bills-heading-title {
+    flex: 1;
+    min-width: 150px;
+}
+
+.bills-header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+#resetAllBillsButton {
+    background: #fff0f0;
+    color: #c0392b;
+    border: 1px solid #e5b7b7;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.bills-header-actions .back-button {
+    white-space: nowrap;
+    height: 38px;
+    min-width: 85px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .bills-page-heading {
+        align-items: flex-start;
+    }
+
+    .bills-heading-title {
+        flex-basis: 100%;
+    }
+
+    .bills-header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+/* GROCERY PAGE HEADER */
+.grocery-page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.grocery-heading-title {
+    flex: 1;
+    min-width: 150px;
+}
+
+.grocery-header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.grocery-header-actions .grocery-reset-all {
+    width: auto;
+    margin: 0;
+    padding: 9px 12px;
+    white-space: nowrap;
+}
+
+.grocery-header-actions .back-button {
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .grocery-page-heading {
+        align-items: flex-start;
+    }
+
+    .grocery-heading-title {
+        flex-basis: 100%;
+    }
+
+    .grocery-header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+/* ========================================
+   BUDGET PLAN SIMULATOR
+======================================== */
+
+.budget-page {
+    padding-bottom: 25px;
+}
+
+.budget-sim-heading {
+    margin-bottom: 10px !important;
+}
+
+.budget-sim-heading h2 {
+    font-size: 20px;
+    margin: 0 0 3px;
+}
+
+.budget-sim-heading p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.sim-card {
+    background: #ffffff;
+    border: 1px solid #e5ebf2;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 7px rgba(9, 44, 85, 0.04);
+}
+
+.sim-budget-input-card label,
+.sim-expense-form label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #334b65;
+}
+
+.sim-budget-input-row {
+    display: flex;
+    gap: 7px;
+}
+
+.sim-budget-input-row input,
+.sim-expense-form input,
+.sim-expense-form select {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    border: 1px solid #d9e2ed;
+    border-radius: 8px;
+    padding: 0 10px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.sim-budget-input-row button {
+    min-width: 65px;
+    border: 0;
+    border-radius: 8px;
+    background: #092c55;
+    color: white;
+    font-weight: 700;
+}
+
+.sim-budget-input-card > small {
+    display: block;
+    margin-top: 6px;
+    font-size: 10px;
+    color: #718096;
+}
+
+.sim-summary-card {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    background: #092c55;
+    color: white;
+    padding: 12px 9px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.sim-summary-card > div:not(.sim-status) {
+    min-width: 0;
+}
+
+.sim-summary-card small {
+    display: block;
+    font-size: 10px;
+    opacity: .8;
+    margin-bottom: 4px;
+}
+
+.sim-summary-card strong {
+    display: block;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.sim-status {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 6px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    background: #e6edf5;
+    color: #092c55;
+}
+
+.sim-status-good {
+    background: #d9f7e5;
+    color: #08783b;
+}
+
+.sim-status-bad {
+    background: #ffe1e1;
+    color: #bd2525;
+}
+
+.sim-status-neutral {
+    background: #e6edf5;
+    color: #092c55;
+}
+
+.sim-progress-track {
+    height: 7px;
+    background: #e8edf3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#simProgressFill {
+    height: 100%;
+    width: 0;
+    background: #20b957;
+    border-radius: 20px;
+    transition: width .2s ease;
+}
+
+.sim-progress-text {
+    font-size: 10px;
+    color: #718096;
+    margin: 4px 2px 10px;
+}
+
+.sim-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.sim-section-heading h3,
+.sim-breakdown-card h3 {
+    font-size: 14px;
+    color: #092c55;
+    margin: 0 0 3px;
+}
+
+.sim-section-heading small {
+    font-size: 10px;
+    color: #718096;
+}
+
+.sim-add-button {
+    border: 0;
+    background: #1976e9;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 13px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.sim-expense-form {
+    background: #f5f8fc;
+    border-radius: 9px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.sim-expense-form > input {
+    margin-bottom: 9px;
+}
+
+.sim-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.sim-form-row input,
+.sim-form-row select {
+    margin-top: 3px;
+}
+
+.sim-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.sim-form-buttons button {
+    border: 0;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#simCancelExpense {
+    background: #e8edf3;
+    color: #334b65;
+}
+
+#simSaveExpense {
+    background: #092c55;
+    color: white;
+}
+
+.sim-expense-row {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 0;
+    border-bottom: 1px solid #edf1f5;
+}
+
+.sim-expense-check {
+    width: 17px;
+    height: 17px;
+    accent-color: #1976e9;
+}
+
+.sim-expense-info {
+    min-width: 0;
+}
+
+.sim-expense-info strong,
+.sim-expense-info small {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.sim-expense-info strong {
+    font-size: 12px;
+    color: #243b53;
+}
+
+.sim-expense-info small {
+    font-size: 10px;
+    color: #718096;
+    margin-top: 2px;
+}
+
+.sim-expense-amount {
+    font-size: 11px;
+    white-space: nowrap;
+    color: #092c55;
+}
+
+.sim-row-actions {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.sim-row-actions button {
+    border: 0;
+    background: #edf3fa;
+    color: #092c55;
+    border-radius: 6px;
+    min-width: 27px;
+    min-height: 27px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.sim-list-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 9px;
+    font-size: 10px;
+    color: #718096;
+}
+
+.sim-list-footer button {
+    border: 0;
+    background: transparent;
+    color: #1976e9;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.sim-empty {
+    text-align: center;
+    font-size: 11px;
+    color: #8291a3;
+    padding: 12px 5px;
+}
+
+.sim-breakdown-card h3 {
+    margin-bottom: 8px;
+}
+
+.sim-breakdown-card > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #edf1f5;
+    font-size: 12px;
+}
+
+.sim-breakdown-card > div:last-child {
+    border-bottom: 0;
+}
+
+.sim-breakdown-card strong {
+    color: #092c55;
+}
+
+.sim-bottom-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.sim-bottom-actions button {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 5px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#simSaveScenario {
+    background: #092c55;
+    color: white;
+}
+
+#simReset {
+    background: #edf1f5;
+    color: #334b65;
+}
+
+.sim-scenarios summary {
+    font-size: 13px;
+    font-weight: 700;
+    color: #092c55;
+    cursor: pointer;
+}
+
+.sim-scenario-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf1f5;
+}
+
+.sim-scenario-row > div:first-child {
+    min-width: 0;
+}
+
+.sim-scenario-row strong,
+.sim-scenario-row small {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.sim-scenario-row strong {
+    font-size: 12px;
+}
+
+.sim-scenario-row small {
+    font-size: 10px;
+    color: #718096;
+    margin-top: 3px;
+}
+
+@media (max-width: 360px) {
+    .sim-summary-card strong {
+        font-size: 11px;
+    }
+
+    .sim-expense-row {
+        gap: 4px;
+    }
+
+    .sim-expense-amount {
+        font-size: 10px;
+    }
+
+    .sim-row-actions button {
+        min-width: 24px;
+        min-height: 25px;
+    }
+}
+/* BUDGET SIMULATOR HEADER BUTTONS */
+
+.sim-header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.sim-header-reset {
+    border: 1px solid #e2a0a0;
+    background: #fff1f1;
+    color: #bd2525;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.sim-header-actions .back-button {
+    white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+    .sim-header-actions {
+        gap: 4px;
+    }
+
+    .sim-header-reset {
+        padding: 7px 8px;
+        font-size: 9px;
+    }
+}
+/* =========================================
+   PESOMATE - MONEY SURVIVAL CALCULATOR
+   VIBRANT • COMPACT • MINIMALIST
+========================================= */
+
+#survivalPage {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 16px 14px 90px;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+.survival-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.survival-heading h2 {
+    font-size: 23px;
+    font-weight: 800;
+    margin: 0 0 4px;
+    color: #102d50;
+}
+
+.survival-heading p {
+    font-size: 12px;
+    color: #718096;
+    margin: 0;
+}
+
+.survival-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.survival-header-actions button {
+    border: none;
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#resetSurvival {
+    background: #e8f1fb;
+    color: #1769c2;
+}
+
+.survival-header-actions .back-button {
+    background: #0b3159;
+    color: white;
+}
+
+/* GENERAL CARDS */
+
+.survival-funds-card,
+.survival-expense-card,
+.survival-summary-card,
+.survival-emergency-approval {
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 14px rgba(20, 55, 90, 0.06);
+}
+
+.survival-funds-card {
+    background: linear-gradient(135deg, #087eae, #16b5bd);
+    color: white;
+}
+
+.survival-expense-card {
+    background: white;
+    border: 1px solid #e7edf5;
+}
+
+.survival-summary-card {
+    background: #edf5ff;
+    border: 1px solid #d8e8fb;
+}
+
+.survival-emergency-approval {
+    background: #fff8e8;
+    border: 1px solid #f5d58c;
+}
+
+#survivalPage h3 {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0 0 12px;
+}
+
+.survival-funds-card h3 {
+    color: white;
+}
+
+.survival-expense-card h3,
+.survival-summary-card h3 {
+    color: #15385e;
+}
+
+/* AVAILABLE FUNDS */
+
+.survival-fund-row,
+.survival-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.survival-fund-row strong {
+    font-size: 17px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.survival-funds-card small {
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* EXPENSE INPUTS */
+
+.survival-expense-card > p {
+    font-size: 12px;
+    color: #78869a;
+    margin: -6px 0 14px;
+}
+
+.survival-input-group {
+    margin-bottom: 11px;
+}
+
+.survival-input-group label {
+    display: block;
+    color: #344b66;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.survival-input-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #dce5ef;
+    border-radius: 10px;
+    background: #f8fafd;
+    color: #173657;
+    font-size: 14px;
+    outline: none;
+}
+
+.survival-input-group input:focus {
+    border-color: #159bd1;
+    box-shadow: 0 0 0 3px rgba(21,155,209,0.12);
+    background: white;
+}
+
+#addSurvivalExpense {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    background: linear-gradient(135deg, #1769e0, #13a9c5);
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* EXPENSE LIST */
+
+#survivalExpenseList {
+    margin-top: 12px;
+}
+
+.survival-empty {
+    text-align: center;
+    padding: 14px;
+    color: #91a0b2;
+    font-size: 12px;
+    background: #f7f9fc;
+    border-radius: 10px;
+}
+
+.survival-expense-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px;
+    margin-bottom: 7px;
+    background: #f4f8fd;
+    border: 1px solid #e6edf6;
+    border-radius: 10px;
+}
+
+.survival-expense-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.survival-expense-details strong {
+    color: #25415f;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.survival-expense-details span {
+    color: #087db8;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.survival-delete-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: #ffe9ed;
+    color: #df4058;
+    font-weight: 800;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* SUMMARY */
+
+.survival-summary-row {
+    color: #415873;
+    border-bottom: 1px solid #dce8f5;
+}
+
+.survival-summary-row strong {
+    color: #15385e;
+    font-size: 14px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+#survivalShortfall {
+    color: #e05252;
+}
+
+.survival-result {
+    margin-top: 13px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #e3edf8;
+    color: #385574;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.survival-feasible {
+    background: #dcf8e9;
+    color: #137b43;
+    border: 1px solid #b5edce;
+}
+
+.survival-not-feasible {
+    background: #ffe5e8;
+    color: #c52d45;
+    border: 1px solid #ffc4ce;
+}
+
+.survival-warning {
+    background: #fff0cc;
+    color: #a56a00;
+    border: 1px solid #f5d58c;
+}
+
+/* EMERGENCY FUND APPROVAL */
+
+.survival-emergency-approval h3 {
+    color: #a66b00;
+}
+
+.survival-emergency-approval p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #765c2b;
+}
+
+.survival-approval-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.survival-approval-buttons button {
+    width: 100%;
+    border: none;
+    border-radius: 9px;
+    padding: 11px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#approveEmergencyUse {
+    background: #159b65;
+    color: white;
+}
+
+#protectEmergencyFund {
+    background: #e8edf4;
+    color: #40546c;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width: 600px) {
+
+    #survivalPage {
+        padding: 12px 10px 100px;
+    }
+
+    .survival-heading {
+        align-items: flex-start;
+    }
+
+    .survival-heading h2 {
+        font-size: 19px;
+    }
+
+    .survival-heading p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .survival-header-actions {
+        gap: 5px;
+    }
+
+    .survival-header-actions button {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .survival-funds-card,
+    .survival-expense-card,
+    .survival-summary-card,
+    .survival-emergency-approval {
+        padding: 13px;
+        margin-bottom: 10px;
+    }
+
+    .survival-fund-row strong {
+        font-size: 15px;
+    }
+}
+/* MANUAL MONEY JAR ALLOCATION */
+
+.survival-allocation {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+.survival-allocation h3 {
+    color: white !important;
+    margin-bottom: 14px !important;
+}
+
+.survival-allocation .survival-input-group label {
+    color: white;
+}
+
+.survival-allocation .survival-input-group input {
+    background: rgba(255,255,255,0.96);
+    color: #15385e;
+}
+
+.survival-allocation-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.survival-allocation-summary > div {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 11px;
+    color: white;
+}
+
+.survival-allocation-summary strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+#survivalAllocationMessage {
+    background: rgba(255,255,255,0.95);
+    margin-top: 12px;
+}
+
+@media (max-width: 400px) {
+    .survival-allocation-summary {
+        grid-template-columns: 1fr;
+    }
+}
+/* =====================================
+   PESOMATE INTERACTIVE MONEY JARS
+===================================== */
+
+.jar-instruction {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+}
+
+.money-jars-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.money-jar-card {
+    text-align: center;
+    padding: 13px 8px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.22);
+}
+
+.money-jar-card h4 {
+    color: white;
+    font-size: 13px;
+    margin: 0 0 12px;
+}
+
+.money-jar {
+    width: 100px;
+    height: 130px;
+    margin: 0 auto 10px;
+    position: relative;
+}
+
+.jar-lid {
+    width: 55px;
+    height: 10px;
+    background: #dce7f0;
+    border-radius: 4px 4px 2px 2px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.jar-glass {
+    position: absolute;
+    top: 8px;
+    bottom: 0;
+    left: 5px;
+    right: 5px;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.85);
+    border-radius: 12px 12px 23px 23px;
+    background: rgba(255,255,255,0.16);
+    box-shadow: inset 0 0 12px rgba(255,255,255,0.3);
+}
+
+.jar-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: height 0.3s ease;
+    opacity: 0.9;
+}
+
+.necessities-fill {
+    background: linear-gradient(to top, #0877dc, #45c5ff);
+}
+
+.emergency-fill {
+    background: linear-gradient(to top, #07965b, #65e6a3);
+}
+
+.jar-percentage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.jar-percentage strong {
+    color: white;
+    font-size: 22px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.35);
+}
+
+.jar-amount {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+.jar-adjust-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.jar-adjust-controls button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 9px;
+    background: white;
+    color: #0b4775;
+    font-size: 21px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.jar-adjust-controls span {
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.money-jar-card small {
+    display: block;
+    margin-top: 9px;
+    color: rgba(255,255,255,0.85);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+@media (max-width: 380px) {
+    .money-jars-container {
+        gap: 7px;
+    }
+
+    .money-jar {
+        width: 85px;
+        height: 115px;
+    }
+
+    .money-jar-card {
+        padding: 10px 5px;
+    }
+}
+.survival-total-entry {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.survival-total-entry input {
+    flex: 1;
+    min-width: 0;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+#setSurvivalAmount {
+    height: 48px;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    border: none;
+    border-radius: 10px;
+    background: #1976e9;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#setSurvivalAmount {
+    min-height: 44px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    background: #1976e9;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+/* FUND AVAILABILITY PERIOD */
+
+.survival-period-card {
+    background: #ffffff;
+    border: 1px solid #dce8f5;
+    border-radius: 16px;
+    padding: 16px;
+    margin: 14px 0;
+}
+
+.survival-period-card h3 {
+    margin: 0 0 5px;
+    color: #092e58;
+}
+
+.survival-period-card > p {
+    margin: 0 0 14px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.survival-period-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.survival-period-inputs label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.survival-period-inputs input,
+.survival-period-inputs select {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #ffffff;
+}
+
+.survival-period-result {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #eaf5ff;
+    text-align: center;
+}
+
+.survival-period-result small {
+    display: block;
+    color: #315b83;
+    font-weight: 600;
+}
+
+.survival-period-result strong {
+    display: block;
+    margin: 7px 0;
+    font-size: 25px;
+    color: #0875d1;
+}
+
+.survival-period-result p {
+    margin: 0;
+    font-size: 12px;
+    color: #64748b;
+}
+/* COMPACT SURVIVAL EXPENSE LIST */
+
+.survival-expense-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px;
+    margin-top: 7px;
+    background: #f1f6fc;
+    border: 1px solid #e0eaf5;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.survival-expense-check {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    accent-color: #087bd1;
+}
+
+.survival-expense-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 3px;
+}
+
+.survival-expense-details strong {
+    font-size: 13px;
+    color: #24415f;
+    overflow-wrap: anywhere;
+}
+
+.survival-expense-details span {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0781b9;
+}
+
+.survival-expense-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.survival-edit-button {
+    min-height: 34px;
+    padding: 0 9px;
+    border: none;
+    border-radius: 8px;
+    background: #e2efff;
+    color: #1264ad;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.survival-delete-button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 9px;
+    background: #ffe9ed;
+    color: #e0445e;
+    font-size: 20px;
+    font-weight: 800;
+}
+/* RECURRING EXPENSE FREQUENCY */
+
+.survival-frequency-field {
+    margin: 12px 0;
+}
+
+.survival-frequency-field label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #344b65;
+}
+
+.survival-frequency-field select {
+    width: 100%;
+    height: 46px;
+    padding: 0 12px;
+    border: 1px solid #dce5ef;
+    border-radius: 10px;
+    background: #f8faff;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* EXPENSE ROW DETAILS */
+
+.survival-expense-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    margin-top: 7px;
+    background: #f1f6fc;
+    border: 1px solid #e0eaf5;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.survival-expense-check {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    accent-color: #087bd1;
+}
+
+.survival-expense-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 3px;
+}
+
+.survival-expense-details strong {
+    font-size: 13px;
+    color: #24415f;
+    overflow-wrap: anywhere;
+}
+
+.survival-expense-details span {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0781b9;
+}
+
+.survival-expense-details small {
+    font-size: 11px;
+    color: #64748b;
+    overflow-wrap: anywhere;
+}
+
+.survival-expense-details .survival-projected-total {
+    color: #087b55;
+    font-weight: 800;
+}
+
+.survival-expense-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.survival-edit-button {
+    min-height: 34px;
+    padding: 0 9px;
+    border: none;
+    border-radius: 8px;
+    background: #e2efff;
+    color: #1264ad;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.survival-delete-button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 9px;
+    background: #ffe9ed;
+    color: #e0445e;
+    font-size: 20px;
+    font-weight: 800;
+}
+/* ======================================
+   PESOMATE - BEFORE YOU BUY
+====================================== */
+
+.purchase-page {
+    padding: 14px 12px 100px;
+    overflow-x: hidden;
+}
+
+.purchase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.purchase-header h2 {
+    color: #092e58;
+    font-size: 21px;
+}
+
+.purchase-header p {
+    color: #718096;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.purchase-header-buttons {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.purchase-header-buttons button {
+    border: none;
+    border-radius: 9px;
+    padding: 9px 10px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.purchase-back {
+    background: #e5efff;
+    color: #1976e9;
+}
+
+#resetPurchase {
+    background: #ffe8ec;
+    color: #dc354f;
+}
+
+/* AVAILABLE BALANCE */
+
+.purchase-balance-card {
+    background: linear-gradient(
+        135deg,
+        #5634c9,
+        #1976e9,
+        #08a6a6
+    );
+    color: white;
+    padding: 19px;
+    border-radius: 17px;
+    margin-bottom: 14px;
+    box-shadow: 0 5px 14px rgba(25,70,160,.16);
+}
+
+.purchase-balance-card small {
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.purchase-balance-card h2 {
+    font-size: 29px;
+    margin: 9px 0;
+    overflow-wrap: anywhere;
+}
+
+.purchase-balance-card p {
+    font-size: 10px;
+    opacity: .9;
+}
+
+/* FORM */
+
+.purchase-form-card,
+.purchase-history-card {
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 12px rgba(20,50,80,.06);
+}
+
+.purchase-form-card h3,
+.purchase-history-card h3 {
+    color: #092e58;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.purchase-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.purchase-field label {
+    font-size: 12px;
+    font-weight: 800;
+    color: #092e58;
+}
+
+.purchase-field input,
+.purchase-field select,
+.purchase-field textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #d5deeb;
+    border-radius: 10px;
+    background: #fbfdff;
+    color: #142747;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.purchase-field textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.purchase-field input:focus,
+.purchase-field select:focus,
+.purchase-field textarea:focus {
+    outline: none;
+    border-color: #8655db;
+    box-shadow: 0 0 0 3px rgba(134,85,219,.12);
+}
+
+/* EVALUATE BUTTON */
+
+#evaluatePurchase {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 11px;
+    background: linear-gradient(120deg,#8655db,#1976e9);
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+/* RESULT */
+
+.purchase-result {
+    background: white;
+    padding: 17px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    border: 2px solid #dce7f5;
+    box-shadow: 0 4px 14px rgba(20,50,80,.07);
+}
+
+.purchase-result > small {
+    font-size: 10px;
+    color: #718096;
+    font-weight: 800;
+}
+
+.purchase-result h2 {
+    font-size: 23px;
+    margin: 9px 0;
+    color: #1976e9;
+}
+
+.purchase-result > p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #52627a;
+}
+
+.purchase-result-details {
+    background: #f3f7fc;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 14px 0;
+}
+
+.purchase-result-details div {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid #dfe7f1;
+}
+
+.purchase-result-details div:last-child {
+    border-bottom: none;
+}
+
+.purchase-result-details small {
+    font-size: 10px;
+    color: #64748b;
+}
+
+.purchase-result-details strong {
+    font-size: 12px;
+    color: #092e58;
+    text-align: right;
+}
+
+.purchase-result .purchase-disclaimer {
+    font-size: 10px;
+    color: #718096;
+    background: #fff8e8;
+    padding: 10px;
+    border-radius: 9px;
+}
+
+#savePurchaseDecision {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #092e58;
+    color: white;
+    font-weight: 800;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* DECISION COLORS */
+
+.purchase-result.buy-now {
+    border-color: #20b957;
+    background: #f0fff5;
+}
+
+.purchase-result.buy-now h2 {
+    color: #159447;
+}
+
+.purchase-result.think-again {
+    border-color: #f3b52c;
+    background: #fffaf0;
+}
+
+.purchase-result.think-again h2 {
+    color: #d58a00;
+}
+
+.purchase-result.dont-buy {
+    border-color: #e94b63;
+    background: #fff3f4;
+}
+
+.purchase-result.dont-buy h2 {
+    color: #dc354f;
+}
+
+/* HISTORY */
+
+.purchase-history-item {
+    padding: 12px;
+    border-radius: 11px;
+    background: #f5f8fc;
+    margin-bottom: 9px;
+    border-left: 4px solid #8655db;
+}
+
+.purchase-history-item strong {
+    display: block;
+    color: #092e58;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.purchase-history-item small {
+    display: block;
+    color: #718096;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.purchase-history-item .history-decision {
+    font-weight: 900;
+    margin-top: 7px;
+}
+
+.purchase-history-item button {
+    border: none;
+    background: #ffe8ec;
+    color: #dc354f;
+    border-radius: 7px;
+    padding: 6px 10px;
+    font-size: 10px;
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+.purchase-empty {
+    text-align: center;
+    color: #718096;
+    font-size: 12px;
+    padding: 20px 5px;
+}
+
+/* MOBILE */
+
+@media (max-width: 380px) {
+
+    .purchase-header h2 {
+        font-size: 18px;
+    }
+
+    .purchase-header-buttons button {
+        padding: 8px;
+        font-size: 9px;
+    }
+
+    .purchase-balance-card h2 {
+        font-size: 25px;
+    }
+
+}
+/* ======================================
+   BEFORE YOU BUY - EXPECTED EXPENSES
+====================================== */
+
+.purchase-expected-card {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 12px rgba(20,50,80,.06);
+    border-top: 4px solid #08a6a6;
+}
+
+.purchase-expected-card h3 {
+    color: #092e58;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.purchase-section-note {
+    color: #718096;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.purchase-expected-form {
+    background: #f4f9ff;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+#addExpectedExpense {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #08a6a6, #1976e9);
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.expected-expense-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 11px 9px;
+    margin-top: 8px;
+    background: #f3f8fd;
+    border: 1px solid #e0eaf5;
+    border-radius: 11px;
+}
+
+.expected-expense-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 4px;
+}
+
+.expected-expense-details strong {
+    color: #092e58;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.expected-expense-details span {
+    color: #087b83;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.expected-expense-details small {
+    color: #718096;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.expected-expense-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.expected-expense-actions button {
+    min-height: 34px;
+    padding: 0 9px;
+    border: none;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.expected-expense-actions button:first-child {
+    background: #e2efff;
+    color: #1264ad;
+}
+
+.expected-expense-actions button:last-child {
+    width: 34px;
+    padding: 0;
+    background: #ffe8ec;
+    color: #dc354f;
+    font-size: 20px;
+}
+
+.purchase-expense-summary {
+    margin-top: 14px;
+    padding: 12px;
+    background: #f3f7fc;
+    border-radius: 12px;
+}
+
+.purchase-expense-summary > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid #dfe7f1;
+}
+
+.purchase-expense-summary > div:last-child {
+    border-bottom: none;
+}
+
+.purchase-expense-summary span {
+    color: #52627a;
+    font-size: 10px;
+}
+
+.purchase-expense-summary strong {
+    color: #092e58;
+    font-size: 12px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.purchase-expense-summary .purchase-adjusted-balance {
+    margin-top: 5px;
+    padding: 12px 9px;
+    background: #e7f8ef;
+    border-radius: 9px;
+}
+
+.purchase-expense-summary .purchase-adjusted-balance span {
+    color: #146b3a;
+    font-weight: 800;
+}
+
+.purchase-expense-summary .purchase-adjusted-balance strong {
+    color: #087b55;
+    font-size: 14px;
+}
+
+.purchase-planning-note {
+    margin-top: 11px;
+    padding: 10px;
+    background: #fff8e8;
+    border-radius: 9px;
+    color: #89651a;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* SMALL PHONE ADJUSTMENTS */
+
+@media (max-width: 360px) {
+
+    .expected-expense-item {
+        gap: 5px;
+        padding: 9px 7px;
+    }
+
+    .expected-expense-actions {
+        gap: 3px;
+    }
+
+    .expected-expense-actions button {
+        padding: 0 7px;
+        font-size: 9px;
+    }
+
+    .expected-expense-actions button:last-child {
+        width: 30px;
+    }
+
+    .purchase-expense-summary span {
+        font-size: 9px;
+    }
+
+}
+/* DEBT MANAGER HEADER */
+.page-heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-heading-row > div {
+    min-width: 0;
+}
+
+.back-button {
+    flex-shrink: 0;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 10px;
+    background: #e8efff;
+    color: #244b91;
+    font-weight: 600;
+    cursor: pointer;
+}
+/* =========================================
+   PESOMATE - RECEIVABLES DESIGN
+========================================= */
+
+#receivablesPage {
+    padding: 0 12px 110px;
+    overflow-x: hidden;
+}
+
+#receivablesPage .page-heading {
+    padding: 18px 4px;
+}
+
+.receivables-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.receivables-reset-button {
+    border: none;
+    border-radius: 10px;
+    padding: 9px 11px;
+    background: #ffe8ec;
+    color: #dc354f;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* SUMMARY */
+
+.receivables-summary {
+    background: linear-gradient(135deg, #087b83, #123d70);
+    color: white;
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(9,46,88,.12);
+}
+
+.receivable-summary-main small,
+.receivable-collected small {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    opacity: .85;
+}
+
+.receivable-summary-main strong {
+    display: block;
+    font-size: 25px;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+
+.receivable-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    margin: 14px 0;
+}
+
+.receivable-summary-grid > div {
+    background: rgba(255,255,255,.15);
+    border-radius: 10px;
+    padding: 9px 5px;
+    text-align: center;
+    min-width: 0;
+}
+
+.receivable-summary-grid small {
+    display: block;
+    font-size: 9px;
+    opacity: .9;
+}
+
+.receivable-summary-grid strong {
+    display: block;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.receivable-collected {
+    border-top: 1px solid rgba(255,255,255,.25);
+    padding-top: 11px;
+}
+
+.receivable-collected strong {
+    display: block;
+    font-size: 17px;
+    margin-top: 4px;
+}
+
+/* ADD BORROWER BUTTON */
+
+.receivables-add-button {
+    width: 100%;
+    min-height: 45px;
+    border: none;
+    border-radius: 11px;
+    background: linear-gradient(120deg, #20b957, #087b83);
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+/* FORMS */
+
+.receivables-form-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 16px;
+    box-shadow: 0 3px 12px rgba(20,50,80,.06);
+    border-top: 4px solid #1976e9;
+}
+
+.receivables-form-card h3 {
+    color: #092e58;
+    font-size: 16px;
+    margin-bottom: 13px;
+}
+
+#receivablesPage label {
+    display: block;
+    color: #34445d;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 11px 0 5px;
+}
+
+#receivablesPage input,
+#receivablesPage select,
+#receivablesPage textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid #dce4ef;
+    border-radius: 9px;
+    background: #f9fbfe;
+    color: #142747;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+#receivablesPage input:focus,
+#receivablesPage select:focus,
+#receivablesPage textarea:focus {
+    border-color: #1976e9;
+    box-shadow: 0 0 0 2px rgba(25,118,233,.1);
+}
+
+#receivablesPage textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.receivables-form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.receivables-form-actions button {
+    flex: 1;
+    min-height: 40px;
+    border: none;
+    border-radius: 9px;
+    background: #1976e9;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.receivables-form-actions button:last-child {
+    background: #e9eef5;
+    color: #34445d;
+}
+
+/* BORROWER RECORDS */
+
+.receivables-section-title {
+    color: #092e58;
+    font-size: 16px;
+    margin: 18px 0 10px;
+}
+
+#receivablesList {
+    width: 100%;
+    min-width: 0;
+}
+
+.receivable-borrower-card {
+    background: white;
+    padding: 13px;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    border-left: 4px solid #20b957;
+    box-shadow: 0 3px 10px rgba(20,50,80,.05);
+    min-width: 0;
+}
+
+.receivable-borrower-card h4 {
+    color: #092e58;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    margin-bottom: 6px;
+}
+
+.receivable-borrower-card p {
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    margin-top: 4px;
+}
+
+.borrower-warning {
+    background: #fff3d9;
+    color: #946200;
+    padding: 10px;
+    border-radius: 9px;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 8px;
+}
+
+.payment-borrower-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    background: #edf5ff;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.payment-borrower-info strong {
+    color: #092e58;
+    font-size: 13px;
+}
+
+.payment-borrower-info small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+/* TRANSACTION ARCHIVE */
+
+.receivables-archive-section {
+    margin-top: 22px;
+    padding: 14px;
+    background: #edf3fb;
+    border-radius: 14px;
+}
+
+.receivables-archive-section h3 {
+    color: #092e58;
+    font-size: 16px;
+}
+
+.archive-description {
+    color: #718096;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 6px 0 12px;
+}
+
+#toggleReceivablesArchive {
+    width: 100%;
+    min-height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #173f72;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.receivables-archive-batch {
+    margin-top: 13px;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+}
+
+.receivables-archive-batch h4 {
+    color: #173f72;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.receivables-archive-payments {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f3f7fc;
+    border-radius: 9px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.receivables-archive-payments p {
+    margin-top: 6px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* EMPTY STATE */
+
+#receivablesPage .empty-state {
+    text-align: center;
+    color: #718096;
+    font-size: 12px;
+    padding: 22px 10px;
+    background: white;
+    border-radius: 12px;
+}
+
+/* SMALL MOBILE SCREENS */
+
+@media (max-width: 380px) {
+    .receivable-summary-main strong {
+        font-size: 22px;
+    }
+
+    .receivable-summary-grid small {
+        font-size: 8px;
+    }
+
+    .receivable-summary-grid strong {
+        font-size: 15px;
+    }
+
+    .receivables-header-actions {
+        gap: 4px;
+    }
+
+    .receivables-header-actions button {
+        padding: 8px;
+        font-size: 10px;
+    }
+}
+/* =========================================
+   RECEIVABLES - VIBRANT ACTION BUTTONS
+========================================= */
+
+/* Arrange borrower action buttons neatly */
+#receivablesList .receivable-borrower-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#receivablesList .receivable-borrower-card button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 13px;
+    border: none;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(20, 39, 71, .12);
+    transition: transform .15s ease, filter .15s ease;
+}
+
+#receivablesList .receivable-borrower-card button:active {
+    transform: scale(.97);
+    filter: brightness(.94);
+}
+
+/* RECORD PAYMENT - GREEN */
+#receivablesList .receivable-borrower-card button:nth-of-type(1) {
+    background: linear-gradient(135deg, #20bf70, #0b9954);
+    color: #ffffff;
+}
+
+/* PAYMENT HISTORY - BLUE */
+#receivablesList .receivable-borrower-card button:nth-of-type(2) {
+    background: linear-gradient(135deg, #2588f5, #1260c4);
+    color: #ffffff;
+}
+
+/* EDIT - PURPLE */
+#receivablesList .receivable-borrower-card button:nth-of-type(3) {
+    background: linear-gradient(135deg, #9b6bea, #7040c5);
+    color: #ffffff;
+}
+
+/* DELETE - RED */
+#receivablesList .receivable-borrower-card button:nth-of-type(4) {
+    background: linear-gradient(135deg, #f16b75, #d9364d);
+    color: #ffffff;
+}
+
+/* Keep buttons readable on smaller phones */
+@media (max-width: 480px) {
+    #receivablesList .receivable-borrower-card button {
+        min-height: 40px;
+        padding: 9px 8px;
+        font-size: 10px;
+    }
+}
+/* =========================================
+   RECEIVABLES - PAYMENT HISTORY DESIGN
+========================================= */
+
+/* Payment History panel */
+#borrowerHistoryContainer {
+    margin-top: 16px;
+    padding: 20px !important;
+    border: none !important;
+    border-top: 5px solid #2588f5 !important;
+    border-radius: 18px !important;
+    background: #ffffff !important;
+    box-shadow: 0 7px 20px rgba(20, 39, 71, .09);
+}
+
+/* Panel heading */
+#borrowerHistoryContainer h3 {
+    color: #123b70;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 14px;
+}
+
+/* Borrower's name */
+#historyBorrowerName {
+    display: block;
+    color: #172f52;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5edf7;
+}
+
+/* Payment history entries */
+#borrowerPaymentHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin: 12px 0;
+}
+
+#borrowerPaymentHistory p,
+#borrowerPaymentHistory div {
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+}
+
+/* Payment details and totals */
+#borrowerHistoryContainer strong {
+    color: #173f72;
+}
+
+#borrowerHistoryContainer > strong {
+    display: block;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* CLOSE BUTTON - PROPER APP CONTROL */
+#closeBorrowerHistory {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 18px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2588f5, #1256ae);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    box-shadow: 0 5px 12px rgba(37, 136, 245, .23);
+    cursor: pointer;
+    transition: transform .15s ease, filter .15s ease;
+}
+
+#closeBorrowerHistory:active {
+    transform: scale(.98);
+    filter: brightness(.93);
+}
+
+/* Small-screen adjustment */
+@media (max-width: 480px) {
+    #borrowerHistoryContainer {
+        padding: 16px !important;
+    }
+
+    #borrowerHistoryContainer h3 {
+        font-size: 18px;
+    }
+
+    #historyBorrowerName {
+        font-size: 16px;
+    }
+}
+/* =========================================
+   PESOMATE - PAYABLES MODULE
+========================================= */
+
+.payables-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.payables-reset-button {
+    border: none;
+    border-radius: 9px;
+    padding: 9px 10px;
+    background: #fff0f0;
+    color: #d94355;
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.payables-summary {
+    margin: 16px 12px;
+    padding: 19px;
+    border-radius: 18px;
+    color: white;
+    background: linear-gradient(135deg, #092e58, #17639b);
+    box-shadow: 0 7px 18px rgba(9,46,88,0.16);
+}
+
+.payable-summary-main {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 15px;
+}
+
+.payable-summary-main small,
+.payable-repaid small {
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.payable-summary-main strong {
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.payable-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.payable-summary-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.payable-summary-grid small {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+.payable-summary-grid strong {
+    font-size: 18px;
+}
+
+.payable-repaid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 13px;
+}
+
+.payable-repaid strong {
+    font-size: 17px;
+    color: #8ff0bd;
+}
+
+.payables-add-button {
+    display: block;
+    width: calc(100% - 24px);
+    margin: 16px 12px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    color: white;
+    background: linear-gradient(120deg, #092e58, #087e8b);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(9,46,88,0.16);
+}
+
+.payables-form-card {
+    margin: 15px 12px;
+    padding: 17px;
+    background: white;
+    border: 1px solid #e5ebf3;
+    border-radius: 16px;
+    box-shadow: 0 5px 16px rgba(20,39,71,0.07);
+}
+
+.payables-form-card h3 {
+    margin: 0 0 16px;
+    color: #092e58;
+    font-size: 18px;
+}
+
+.payables-form-card label {
+    display: block;
+    margin: 12px 0 6px;
+    color: #344761;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.payables-form-card input,
+.payables-form-card select,
+.payables-form-card textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 12px;
+    border: 1px solid #dce4ee;
+    border-radius: 10px;
+    background: #f8fafd;
+    color: #142747;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.payables-form-card textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.payables-form-actions {
+    display: flex;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.payables-form-actions button {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 7px;
+    border: none;
+    border-radius: 10px;
+    background: #0b4778;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.payables-form-actions button:last-child {
+    background: #e9eef5;
+    color: #344761;
+}
+
+.payables-section-title {
+    margin: 22px 14px 12px;
+    color: #092e58;
+    font-size: 16px;
+}
+
+.payable-creditor-card {
+    margin: 12px;
+    padding: 15px;
+    background: white;
+    border: 1px solid #e4eaf2;
+    border-radius: 15px;
+    box-shadow: 0 4px 13px rgba(20,39,71,0.06);
+    overflow-wrap: anywhere;
+}
+
+.payable-card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.payable-card-heading strong:first-child {
+    color: #092e58;
+    font-size: 15px;
+}
+
+.payable-card-heading strong:last-child {
+    color: #dc4659;
+    font-size: 15px;
+}
+
+.payable-card-details {
+    padding: 9px 0;
+}
+
+.payable-card-details p {
+    margin: 6px 0;
+    color: #53647b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.payable-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.payable-card-actions button {
+    flex: 1;
+    min-width: 115px;
+    padding: 10px 7px;
+    border: none;
+    border-radius: 9px;
+    background: #e8f2ff;
+    color: #1260a3;
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.payable-card-actions button:first-child {
+    background: #e4f8ed;
+    color: #16834a;
+}
+
+.payables-payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding: 13px;
+    border-radius: 11px;
+    background: #f1f6fc;
+    color: #344761;
+    font-size: 12px;
+}
+
+.payables-payment-info strong {
+    color: #092e58;
+    font-size: 14px;
+}
+
+.payables-disclaimer {
+    margin-top: 14px;
+    padding: 11px;
+    border-radius: 10px;
+    background: #fff8e9;
+    color: #85621c;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.payables-disclaimer-card {
+    margin: 18px 12px 30px;
+    padding: 15px;
+    border: 1px solid #dce8f5;
+    border-radius: 14px;
+    background: #f3f8ff;
+    color: #40546d;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.payables-disclaimer-card strong {
+    color: #092e58;
+    font-size: 14px;
+}
+
+.payables-archive-section {
+    margin: 22px 12px;
+    padding: 15px;
+    border: 1px solid #e1e8f0;
+    border-radius: 14px;
+    background: white;
+}
+
+.payables-archive-section h3 {
+    margin-top: 0;
+    color: #092e58;
+    font-size: 16px;
+}
+
+.payables-archive-section > button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #eaf2fb;
+    color: #14568d;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.payables-archive-batch {
+    margin-top: 14px;
+}
+
+.payables-archive-batch h4 {
+    color: #092e58;
+    font-size: 13px;
+}
+
+.payable-payment-history-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 9px;
+    padding: 11px;
+    border-radius: 9px;
+    background: #f4f7fb;
+    color: #53647b;
+    font-size: 12px;
+}
+
+.payable-payment-history-row strong {
+    color: #092e58;
+}
+
+@media (max-width: 480px) {
+
+    .payables-header-actions {
+        gap: 5px;
+    }
+
+    .payables-reset-button {
+        padding: 8px 7px;
+        font-size: 9px;
+    }
+
+    .payable-summary-main strong {
+        font-size: 24px;
+    }
+
+    .payable-summary-grid small {
+        font-size: 9px;
+    }
+
+    .payable-summary-grid strong {
+        font-size: 16px;
+    }
+
+    .payables-form-actions button {
+        font-size: 10px;
+    }
+
+}
+/* PAYABLES REPAYMENT POPUP */
+.payables-payment-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(5, 23, 48, 0.68);
+    overflow-y: auto;
+}
+
+.payables-payment-modal-box {
+    width: 100%;
+    max-width: 400px;
+    max-height: 82vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 480px) {
+    .payables-payment-modal-overlay {
+        align-items: flex-end;
+        padding: 10px;
+    }
+
+    .payables-payment-modal-box {
+        max-width: none;
+        max-height: 88vh;
+        border-radius: 18px 18px 12px 12px;
+        padding: 16px;
+    }
+}
+/* =====================================
+   PAYABLES - REPAYMENT POPUP
+===================================== */
+
+.payables-payment-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(5, 23, 48, 0.72);
+    overflow-y: auto;
+}
+
+.payables-payment-modal-box {
+    width: 100%;
+    max-width: 440px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.payables-payment-modal-box h3 {
+    color: #092e58;
+    font-size: 19px;
+    margin-bottom: 16px;
+}
+
+.payables-payment-modal-box label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #142747;
+    margin: 12px 0 6px;
+}
+
+.payables-payment-modal-box input,
+.payables-payment-modal-box textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d6dfeb;
+    border-radius: 9px;
+    background: #f8faff;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.payables-payment-modal-box textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.payables-payment-info {
+    background: #eef5ff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.payables-payment-info strong,
+.payables-payment-info small {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.payables-payment-info strong {
+    color: #092e58;
+}
+
+.payables-form-actions {
+    display: flex;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.payables-form-actions button {
+    flex: 1;
+    padding: 12px 8px;
+    border: none;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#saveCreditorPayment {
+    background: #092e58;
+    color: white;
+}
+
+#cancelCreditorPayment {
+    background: #edf1f6;
+    color: #092e58;
+}
+
+.payables-payment-modal-box .payables-disclaimer {
+    margin-top: 13px;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #718096;
+}
+
+@media (max-width: 480px) {
+    .payables-payment-modal-overlay {
+        align-items: center;
+        padding: 12px;
+    }
+
+    .payables-payment-modal-box {
+        max-width: none;
+        max-height: 88vh;
+        padding: 17px;
+    }
+}
+/* =====================================
+   PESOMATE - COMPACT REPAYMENT POPUP
+===================================== */
+
+.payables-payment-modal-overlay {
+    padding: 12px !important;
+}
+
+.payables-payment-modal-box {
+    width: 100% !important;
+    max-width: 350px !important;
+    max-height: 75vh !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+    overflow-y: auto !important;
+}
+
+.payables-payment-modal-box h3 {
+    font-size: 17px !important;
+    margin: 0 0 10px !important;
+}
+
+.payables-payment-info {
+    padding: 9px !important;
+    margin-bottom: 9px !important;
+    border-radius: 9px !important;
+}
+
+.payables-payment-info strong {
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+}
+
+.payables-payment-info small {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+}
+
+.payables-payment-modal-box label {
+    font-size: 11px !important;
+    margin: 8px 0 4px !important;
+}
+
+.payables-payment-modal-box input {
+    height: 40px !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+}
+
+.payables-payment-modal-box textarea {
+    min-height: 55px !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+}
+
+.payables-form-actions {
+    gap: 7px !important;
+    margin-top: 12px !important;
+}
+
+.payables-form-actions button {
+    min-height: 40px !important;
+    padding: 8px 5px !important;
+    font-size: 11px !important;
+}
+
+.payables-payment-modal-box .payables-disclaimer {
+    margin-top: 9px !important;
+    padding: 8px !important;
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+}
+/* =========================================
+   PESOMATE - UPGRADED PAYMENT HISTORY POPUP
+========================================= */
+
+.payables-history-modal {
+    max-width: 370px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    background: #ffffff !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* HEADER */
+
+.payables-history-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    background: linear-gradient(135deg, #173b67, #2876a8);
+    color: white;
+}
+
+.payables-history-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.18);
+    font-size: 22px;
+}
+
+.payables-history-header h3 {
+    margin: 0 !important;
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.payables-history-header p {
+    margin: 4px 0 0;
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+}
+
+/* CREDITOR INFORMATION */
+
+.payables-history-creditor {
+    margin: 15px 15px 10px;
+    padding: 12px;
+    border-radius: 11px;
+    background: #f1f6fb;
+    border: 1px solid #e0eaf3;
+}
+
+.payables-history-creditor small {
+    display: block;
+    margin-bottom: 5px;
+    color: #718096;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+}
+
+.payables-history-creditor strong {
+    display: block;
+    color: #173b67;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* PAYMENT SUMMARY */
+
+.payables-history-summary {
+    margin: 0 15px 12px;
+}
+
+/* HISTORY LIST */
+
+.payables-history-list {
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 0 15px 12px;
+}
+
+/* CLOSE BUTTON */
+
+.payables-history-close {
+    display: block;
+    width: calc(100% - 30px);
+    min-height: 44px;
+    margin: 5px 15px 15px;
+    padding: 11px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #173b67, #2876a8);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(23, 59, 103, 0.2);
+}
+
+.payables-history-close:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* MOBILE ADJUSTMENT */
+
+@media (max-width: 480px) {
+    .payables-history-modal {
+        max-width: 350px !important;
+        max-height: 80vh !important;
+    }
+
+    .payables-history-list {
+        max-height: 220px;
+    }
+}
+/* =========================================
+   PESOMATE - PAYMENT HISTORY DETAILS
+========================================= */
+
+.payables-history-summary-card {
+    padding: 13px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e8f3ff, #f1f7fc);
+    border: 1px solid #d6e7f5;
+    text-align: center;
+}
+
+.payables-history-summary-card small {
+    display: block;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.payables-history-summary-card strong {
+    display: block;
+    margin: 5px 0;
+    color: #17613e;
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.payables-history-summary-card span {
+    color: #64748b;
+    font-size: 10px;
+}
+
+.payables-history-list .payable-payment-history-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 9px;
+    padding: 12px;
+    border: 1px solid #e5edf5;
+    border-left: 4px solid #2876a8;
+    border-radius: 11px;
+    background: #ffffff;
+}
+
+.payables-history-payment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.payables-history-payment-details strong {
+    color: #26384b;
+    font-size: 12px;
+}
+
+.payables-history-payment-details small {
+    color: #718096;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.payables-history-payment-amount {
+    flex-shrink: 0;
+    color: #16804b;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.payables-history-empty {
+    padding: 25px 12px;
+    text-align: center;
+    color: #718096;
+}
+
+.payables-history-empty span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 30px;
+}
+
+.payables-history-empty strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #334155;
+    font-size: 13px;
+}
+
+.payables-history-empty small {
+    font-size: 11px;
+}
+/* =====================================
+   PESOMATE - WHERE YOUR MONEY GOES
+===================================== */
+
+.money-breakdown-card {
+    background: linear-gradient(135deg, #092c55, #063568);
+    color: #ffffff;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 30, 70, 0.15);
+}
+
+.money-breakdown-card h3 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0 0 12px;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 12px;
+}
+
+.breakdown-row span {
+    color: #e5edf8;
+}
+
+.breakdown-row strong {
+    color: #ffffff;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.breakdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 3px 0;
+}
+
+.breakdown-row.balance-row {
+    font-weight: 800;
+}
+
+.breakdown-row.balance-row strong {
+    color: #35df78;
+    font-size: 14px;
+}
+
+.breakdown-note {
+    margin: 9px 0 0;
+    color: #e5edf8;
+    font-size: 10px;
+    line-height: 1.4;
+}
+/* ENLARGE MONEY JAR ALLOCATION TEXT */
+.allocation-details {
+    font-size: 15px !important;
+}
+
+.allocation-details small {
+    font-size: 14px !important;
+}
+
+.allocation-details strong {
+    font-size: 17px !important;
+    font-weight: 800 !important;
+}
+/* MONEY JAR CARD COLOR */
+.money-jar-card {
+    background: linear-gradient(135deg, #e8f4ff, #d5eaff) !important;
+    border: 1px solid #b8d9f5 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 4px 14px rgba(20, 75, 130, 0.10);
+}
+/* IMPROVE MONEY JAR TEXT READABILITY */
+.section-card.money-jar-card .allocation-details {
+    color: #17365d !important;
+}
+
+.section-card.money-jar-card .allocation-details small {
+    color: #17365d !important;
+}
+
+.section-card.money-jar-card .allocation-details strong {
+    color: #102b50 !important;
+    font-weight: 800 !important;
+}
+
+/* REMAINING BALANCE */
+.section-card.money-jar-card .allocation-details span {
+    color: #24527a !important;
+    font-weight: 700 !important;
+}
+/* =========================================
+   PESOMATE DASHBOARD REDESIGN
+========================================= */
+
+/* MAIN AVAILABLE MONEY CARD */
+.redesigned-balance-card {
+    background: linear-gradient(135deg, #07366f, #0870c9) !important;
+    color: #ffffff !important;
+    padding: 22px !important;
+    border-radius: 24px !important;
+    box-shadow: 0 8px 20px rgba(0, 45, 100, 0.20);
+    overflow: hidden;
+}
+
+.redesigned-balance-card .balance-main-heading h2 {
+    color: #ffffff !important;
+    font-size: 23px !important;
+    font-weight: 800 !important;
+    margin: 0 0 5px !important;
+}
+
+.redesigned-balance-card .balance-main-heading p {
+    color: #e3efff !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+    line-height: 1.5;
+}
+
+.redesigned-balance-card .balance-amount {
+    text-align: center;
+    margin: 20px 0;
+    padding: 12px 8px;
+    background: rgba(0, 20, 55, 0.55);
+    border-radius: 50px;
+}
+
+.redesigned-balance-card .balance-amount h1 {
+    color: #ffeb00 !important;
+    font-size: clamp(28px, 7vw, 43px) !important;
+    font-weight: 900 !important;
+    margin: 0 !important;
+    overflow-wrap: anywhere;
+}
+
+/* INCOME AND EXPENSE SUMMARY */
+.redesigned-income-expense {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    background: #ffffff !important;
+    border-radius: 18px;
+    padding: 13px 10px !important;
+    margin-top: 12px;
+}
+
+.redesigned-income-expense .balance-summary-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 1;
+    min-width: 0;
+}
+
+.redesigned-income-expense small {
+    display: block;
+    color: #64748b !important;
+    font-size: 11px !important;
+}
+
+.redesigned-income-expense strong {
+    display: block;
+    color: #102b50 !important;
+    font-size: clamp(12px, 3.4vw, 17px) !important;
+    font-weight: 800 !important;
+    overflow-wrap: anywhere;
+}
+
+.redesigned-income-expense .summary-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.redesigned-income-expense .income-icon {
+    background: #dcfce7 !important;
+    color: #16a34a !important;
+}
+
+.redesigned-income-expense .expense-icon {
+    background: #ffe4e6 !important;
+    color: #e11d48 !important;
+}
+
+.balance-summary-divider {
+    width: 1px;
+    height: 45px;
+    background: #cbd5e1;
+}
+
+/* HOW YOUR MONEY IS DIVIDED */
+.redesigned-money-jar {
+    background: linear-gradient(135deg, #eaf6ff, #d8ecff) !important;
+    border: 1px solid #b8dcfa !important;
+    border-radius: 23px !important;
+    padding: 18px 14px !important;
+    box-shadow: 0 6px 18px rgba(30, 90, 150, 0.10);
+    overflow: hidden;
+}
+
+.redesigned-jar-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.redesigned-jar-heading .heading-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.redesigned-jar-heading h3 {
+    color: #102b50 !important;
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+}
+
+.redesigned-jar-heading .heading-icon {
+    font-size: 24px;
+}
+
+.redesigned-jar-heading .jar-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.redesigned-jar-heading .jar-info-button,
+.redesigned-jar-heading .manage-button {
+    border-radius: 30px !important;
+    padding: 9px 11px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+}
+
+.jar-description {
+    color: #355779;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 8px 0 16px;
+}
+
+/* MONEY JAR AND FUND DETAILS */
+.redesigned-jar-content {
+    display: grid !important;
+    grid-template-columns: minmax(90px, 0.8fr) minmax(0, 2fr);
+    align-items: center;
+    gap: 12px;
+}
+
+.redesigned-jar-content .money-jar-visual {
+    width: 100%;
+    max-width: 145px;
+    margin: 0 auto;
+}
+
+.redesigned-jar-content .allocation-details {
+    min-width: 0;
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+    color: #102b50 !important;
+}
+
+.redesigned-jar-content .allocation-details > div {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 12px 10px;
+    border: 1px solid #d5e8fa;
+    min-width: 0;
+}
+
+.redesigned-jar-content .allocation-details small {
+    color: #244b70 !important;
+    font-size: 12px !important;
+    line-height: 1.5;
+}
+
+.redesigned-jar-content .allocation-details strong {
+    color: #102b50 !important;
+    font-size: 17px !important;
+    font-weight: 900 !important;
+}
+
+.redesigned-jar-content .allocation-details span {
+    color: #244b70 !important;
+}
+
+/* TOTAL ALLOCATED */
+.redesigned-jar-total {
+    border-top: 1px solid #c5dff5 !important;
+    margin-top: 15px !important;
+    padding-top: 12px !important;
+    color: #17365d !important;
+}
+
+.redesigned-jar-total strong {
+    color: #102b50 !important;
+    font-size: 16px !important;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 480px) {
+
+    .redesigned-balance-card {
+        padding: 16px !important;
+    }
+
+    .redesigned-balance-card .balance-main-heading h2 {
+        font-size: 20px !important;
+    }
+
+    .redesigned-balance-card .balance-amount {
+        margin: 15px 0;
+    }
+
+    .redesigned-income-expense {
+        padding: 10px 7px !important;
+    }
+
+    .redesigned-income-expense .summary-icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 19px;
+    }
+
+    .redesigned-money-jar {
+        padding: 14px 10px !important;
+    }
+
+    .redesigned-jar-heading h3 {
+        font-size: 16px !important;
+    }
+
+    .redesigned-jar-content {
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .redesigned-jar-content .allocation-details > div {
+        padding: 9px 7px;
+    }
+
+    .redesigned-jar-content .allocation-details small {
+        font-size: 10px !important;
+    }
+
+    .redesigned-jar-content .allocation-details strong {
+        font-size: 14px !important;
+    }
+}
+/* =========================================
+   PESOMATE MONEY JAR - REFERENCE DESIGN
+========================================= */
+
+/* MAIN LIGHT BLUE CONTAINER */
+.redesigned-money-jar {
+    background: linear-gradient(145deg, #eaf6ff, #cce7ff) !important;
+    border: 2px solid #69baff !important;
+    border-radius: 24px !important;
+    padding: 18px 14px !important;
+    margin: 12px !important;
+    box-shadow: 0 7px 18px rgba(20, 100, 180, 0.15);
+}
+
+/* HEADING */
+.redesigned-jar-heading {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.redesigned-jar-heading h3 {
+    color: #10264c !important;
+    font-size: 21px !important;
+    font-weight: 900 !important;
+}
+
+.redesigned-jar-heading .heading-icon {
+    font-size: 27px !important;
+}
+
+.redesigned-jar-heading .jar-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.redesigned-jar-heading .jar-info-button,
+.redesigned-jar-heading .manage-button {
+    border-radius: 25px !important;
+    padding: 9px 12px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+}
+
+/* DESCRIPTION */
+.redesigned-money-jar .jar-description {
+    color: #173b65 !important;
+    font-size: 13px !important;
+    line-height: 1.5;
+    margin: 8px 0 17px;
+}
+
+/* JAR LEFT, FUND CARDS RIGHT */
+.redesigned-jar-content {
+    display: grid !important;
+    grid-template-columns: 0.85fr 2fr;
+    align-items: center;
+    gap: 12px;
+}
+
+/* MONEY JAR ILLUSTRATION */
+.redesigned-jar-content .money-jar-visual {
+    width: 100%;
+    max-width: 155px;
+    margin: auto;
+}
+
+.redesigned-jar-content .jar-body {
+    min-height: 260px;
+}
+
+/* FUND DETAILS */
+.redesigned-jar-content .allocation-details {
+    display: flex !important;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* WHITE FUND CARDS */
+.redesigned-jar-content .redesigned-fund-card {
+    background: #ffffff !important;
+    border: 1px solid #d8eaff;
+    border-radius: 17px !important;
+    padding: 14px 12px !important;
+    box-shadow: 0 4px 9px rgba(30, 90, 150, 0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* FUND NAME AND DESCRIPTION */
+.fund-card-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.fund-card-heading .allocation-dot {
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+
+.fund-card-label {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.fund-card-label strong {
+    color: #10264c !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+}
+
+.fund-card-label small {
+    color: #294768 !important;
+    font-size: 11px !important;
+    line-height: 1.4;
+}
+
+/* FUND AMOUNTS */
+.fund-card-amount {
+    align-self: flex-end;
+    padding: 9px 12px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 900;
+    color: #10264c;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+}
+
+.necessities-amount {
+    background: #d8efff;
+}
+
+.other-funds-amount {
+    background: #d5f9dc;
+}
+
+.fund-card-percentage {
+    color: #55708e;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: right;
+}
+
+/* YELLOW REMAINING BALANCE CARD */
+.redesigned-jar-content .allocation-remaining-card {
+    background: linear-gradient(110deg, #fff5a8, #ffe879) !important;
+    border: 1.5px solid #ffc928;
+    border-radius: 17px;
+    padding: 13px 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 9px rgba(180, 140, 0, 0.13);
+}
+
+.remaining-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.remaining-icon {
+    font-size: 25px;
+}
+
+.remaining-heading strong {
+    display: block;
+    color: #172b50 !important;
+    font-size: 14px !important;
+    font-weight: 900 !important;
+}
+
+.remaining-heading small {
+    display: block;
+    color: #354765 !important;
+    font-size: 10px !important;
+    line-height: 1.4;
+    margin-top: 3px;
+}
+
+.remaining-amount {
+    background: #0b376d;
+    color: #ffffff !important;
+    padding: 10px 8px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+/* TOTAL ALLOCATED MONEY */
+.redesigned-jar-total {
+    border-top: 1px solid #b9d9f3 !important;
+    margin-top: 15px !important;
+    padding-top: 12px !important;
+    color: #17365d !important;
+}
+
+.redesigned-jar-total strong {
+    color: #10264c !important;
+    font-weight: 900 !important;
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 480px) {
+
+    .redesigned-money-jar {
+        padding: 13px 9px !important;
+    }
+
+    .redesigned-jar-heading {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .redesigned-jar-heading h3 {
+        font-size: 17px !important;
+    }
+
+    .redesigned-jar-content {
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .redesigned-jar-content .jar-body {
+        min-height: 190px;
+    }
+
+    .redesigned-jar-content .redesigned-fund-card {
+        padding: 10px 7px !important;
+    }
+
+    .fund-card-label strong {
+        font-size: 13px !important;
+    }
+
+    .fund-card-label small {
+        font-size: 9px !important;
+    }
+
+    .fund-card-amount {
+        font-size: 14px;
+        padding: 7px;
+    }
+
+    .remaining-heading strong {
+        font-size: 12px !important;
+    }
+
+    .remaining-amount {
+        font-size: 15px;
+    }
+}
+/* =========================================
+   COMPACT MONEY JAR DASHBOARD
+========================================= */
+
+.redesigned-money-jar {
+    padding: 14px 12px !important;
+    margin: 10px 12px 20px !important;
+    border-radius: 19px !important;
+}
+
+/* Smaller heading */
+.redesigned-jar-heading h3 {
+    font-size: 18px !important;
+}
+
+.redesigned-jar-heading .heading-icon {
+    font-size: 22px !important;
+}
+
+.redesigned-money-jar .jar-description {
+    font-size: 11px !important;
+    margin: 5px 0 12px !important;
+}
+
+/* Reduce overall height */
+.redesigned-jar-content {
+    grid-template-columns: 105px minmax(0, 1fr) !important;
+    gap: 9px !important;
+    align-items: center !important;
+}
+
+/* Smaller jar */
+.redesigned-jar-content .money-jar-visual {
+    max-width: 105px !important;
+}
+
+.redesigned-jar-content .jar-body {
+    min-height: 180px !important;
+}
+
+/* Compact fund cards */
+.redesigned-jar-content .allocation-details {
+    gap: 8px !important;
+}
+
+.redesigned-jar-content .redesigned-fund-card {
+    padding: 10px !important;
+    border-radius: 13px !important;
+    gap: 5px !important;
+}
+
+.fund-card-heading {
+    gap: 7px !important;
+}
+
+.fund-card-heading .allocation-dot {
+    width: 13px !important;
+    height: 13px !important;
+    min-width: 13px !important;
+}
+
+.fund-card-label strong {
+    font-size: 14px !important;
+}
+
+.fund-card-label small {
+    font-size: 10px !important;
+}
+
+.fund-card-amount {
+    font-size: 16px !important;
+    padding: 6px 9px !important;
+}
+
+.fund-card-percentage {
+    font-size: 9px !important;
+}
+
+/* Smaller remaining balance card */
+.redesigned-jar-content .allocation-remaining-card {
+    padding: 10px !important;
+    border-radius: 13px !important;
+    gap: 7px !important;
+}
+
+.remaining-icon {
+    font-size: 21px !important;
+}
+
+.remaining-heading strong {
+    font-size: 13px !important;
+}
+
+.remaining-heading small {
+    font-size: 9px !important;
+}
+
+.remaining-amount {
+    font-size: 17px !important;
+    padding: 8px !important;
+}
+
+/* Reduce space below the card */
+.redesigned-jar-total {
+    margin-top: 10px !important;
+    padding-top: 9px !important;
+}
+
+/* Ensure bottom content is not hidden by navigation */
+#dashboardPage {
+    padding-bottom: 25px;
+}
+/* =========================================
+   EXTRA COMPACT NECESSITIES & OTHER FUNDS
+========================================= */
+
+.redesigned-jar-content .redesigned-fund-card {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 4px 8px !important;
+
+    padding: 10px 11px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    border-radius: 13px !important;
+}
+
+/* Fund name and description */
+.redesigned-fund-card .fund-card-heading {
+    grid-column: 1;
+    grid-row: 1;
+    align-items: center !important;
+    gap: 7px !important;
+}
+
+.redesigned-fund-card .fund-card-label strong {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+}
+
+.redesigned-fund-card .fund-card-label small {
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+}
+
+/* Amount on the right */
+.redesigned-fund-card .fund-card-amount {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center !important;
+
+    font-size: 14px !important;
+    padding: 7px 9px !important;
+    border-radius: 9px !important;
+    white-space: nowrap;
+}
+
+/* Remove extra allocation line to save height */
+.redesigned-fund-card .fund-card-percentage {
+    display: none !important;
+}
+
+/* Reduce space between cards */
+.redesigned-jar-content .allocation-details {
+    gap: 7px !important;
+}
+
+/* Keep the yellow card compact too */
+.redesigned-jar-content .allocation-remaining-card {
+    padding: 9px !important;
+    gap: 6px !important;
+}
+
+.remaining-amount {
+    padding: 7px !important;
+    font-size: 15px !important;
+}
+/* =========================================
+   COMPACT AVAILABLE MONEY CARD
+========================================= */
+
+.redesigned-balance-card {
+    padding: 14px 16px !important;
+    margin: 10px 12px 12px !important;
+    border-radius: 20px !important;
+}
+
+/* Heading */
+.redesigned-balance-card .balance-main-heading h2 {
+    font-size: 20px !important;
+    margin-bottom: 3px !important;
+}
+
+.redesigned-balance-card .balance-main-heading p {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+}
+
+/* Main balance */
+.redesigned-balance-card .balance-amount {
+    margin: 12px 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 40px !important;
+}
+
+.redesigned-balance-card .balance-amount h1 {
+    font-size: clamp(27px, 6vw, 36px) !important;
+}
+
+/* Income and expenses panel */
+.redesigned-balance-card .redesigned-income-expense {
+    padding: 8px 9px !important;
+    border-radius: 13px !important;
+    min-height: 65px !important;
+}
+
+.redesigned-balance-card .balance-summary-item {
+    gap: 7px !important;
+}
+
+.redesigned-balance-card .summary-icon {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    font-size: 20px !important;
+}
+
+.redesigned-balance-card .redesigned-income-expense small {
+    font-size: 10px !important;
+}
+
+.redesigned-balance-card .redesigned-income-expense strong {
+    font-size: 14px !important;
+    margin-top: 2px !important;
+}
+
+.redesigned-balance-card .balance-summary-divider {
+    height: 36px !important;
+}
+/* ========================================
+   PESOMATE THEME COLORS
+======================================== */
+
+/* LIGHT MODE */
+html[data-theme="light"] {
+    --background: #f4f7fb;
+    --text: #142747;
+    --muted: #718096;
+    --white: #ffffff;
+}
+
+/* DARK MODE */
+html[data-theme="dark"] {
+    --background: #121a28;
+    --text: #e8edf5;
+    --muted: #aab6c8;
+    --white: #1e293b;
+}
+
+/* GENERAL PAGE BACKGROUNDS */
+html[data-theme="dark"] body,
+html[data-theme="dark"] .app-container,
+html[data-theme="dark"] #mainContent {
+    background: var(--background);
+    color: var(--text);
+}
+
+/* GENERAL TEXT */
+html[data-theme="dark"] .page-heading h2,
+html[data-theme="dark"] .page-heading h3,
+html[data-theme="dark"] .page-heading p,
+html[data-theme="dark"] .section-heading h3,
+html[data-theme="dark"] .greeting h2,
+html[data-theme="dark"] .greeting p {
+    color: var(--text);
+}
+
+/* GENERAL WHITE CARDS */
+html[data-theme="dark"] .menu-list,
+html[data-theme="dark"] .menu-list button,
+html[data-theme="dark"] .theme-selection-card,
+html[data-theme="dark"] .about-card {
+    background: #1e293b;
+    color: var(--text);
+}
+
+/* MENU TEXT */
+html[data-theme="dark"] .menu-list button {
+    border-bottom-color: #334155;
+}
+
+/* THEME AND ABOUT TEXT */
+html[data-theme="dark"] .theme-selection-card h3,
+html[data-theme="dark"] .theme-selection-card p,
+html[data-theme="dark"] .theme-option strong,
+html[data-theme="dark"] .theme-option small,
+html[data-theme="dark"] .about-card h2,
+html[data-theme="dark"] .about-card h3,
+html[data-theme="dark"] .about-card p {
+    color: var(--text);
+}
+/* ========================================
+   PESOMATE - DARK MODE TEXT VISIBILITY
+======================================== */
+
+html[data-theme="dark"] .today-date,
+html[data-theme="dark"] .module-card small,
+html[data-theme="dark"] .menu-list button,
+html[data-theme="dark"] .menu-list button span,
+html[data-theme="dark"] .page-heading h2,
+html[data-theme="dark"] .page-heading p,
+html[data-theme="dark"] .section-heading h3 {
+    color: #E8EDF5 !important;
+}
+/* ========================================
+   DARK MODE - IMPROVED TEXT CONTRAST
+======================================== */
+
+/* Headings on dark page backgrounds */
+html[data-theme="dark"] .page-heading h2,
+html[data-theme="dark"] .page-heading h3,
+html[data-theme="dark"] .section-heading h3,
+html[data-theme="dark"] .page > h2,
+html[data-theme="dark"] .page > h3 {
+    color: #E8EDF5 !important;
+}
+
+/* Blue headings that are difficult to read */
+html[data-theme="dark"] .page h2,
+html[data-theme="dark"] .page h3 {
+    text-shadow: none;
+}
+
+/* Secondary text on dark backgrounds */
+html[data-theme="dark"] .page-heading p,
+html[data-theme="dark"] .page > p {
+    color: #C5CEDD;
+}
+
+/* Keep text readable inside white cards */
+html[data-theme="dark"] .section-card,
+html[data-theme="dark"] .section-card p,
+html[data-theme="dark"] .section-card small,
+html[data-theme="dark"] .section-card label,
+html[data-theme="dark"] .section-card h3,
+html[data-theme="dark"] .section-card h4 {
+    color: #142747;
+}
+/* DARK MODE - BUDGET SIMULATOR WHITE CARD TEXT */
+
+html[data-theme="dark"] .sim-breakdown-card h3 {
+    color: #142747 !important;
+}
+
+html[data-theme="dark"] .sim-breakdown-card span {
+    color: #52627a !important;
+}
+
+html[data-theme="dark"] .sim-breakdown-card strong {
+    color: #142747 !important;
+}
+
+html[data-theme="dark"] .sim-card,
+html[data-theme="dark"] .sim-card h3,
+html[data-theme="dark"] .sim-card p,
+html[data-theme="dark"] .sim-card small,
+html[data-theme="dark"] .sim-card span {
+    color: #142747;
+}
+/* ========================================
+   DARK MODE - INCOME AND EXPENSE HISTORY
+======================================== */
+
+html[data-theme="dark"] .income-history-heading h3,
+html[data-theme="dark"] .expense-history-heading h3 {
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .income-history-heading span,
+html[data-theme="dark"] .expense-history-heading span {
+    color: #60a5fa !important;
+}
+/* ========================================
+   PESOMATE - THEME SELECTION DESIGN
+   DARK MODE
+======================================== */
+
+html[data-theme="dark"] .theme-selection-card {
+    background: #1e293b !important;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px !important;
+    margin-top: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+}
+
+/* CARD HEADING */
+html[data-theme="dark"] .theme-selection-card h3 {
+    color: #ffffff !important;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+html[data-theme="dark"] .theme-selection-card > p {
+    color: #aebbd0 !important;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* THEME OPTIONS */
+html[data-theme="dark"] .theme-option {
+    display: flex !important;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #29374c;
+    border: 1px solid #40516a;
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+/* RADIO BUTTON */
+html[data-theme="dark"] .theme-option input {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    accent-color: #60a5fa;
+}
+
+/* THEME ICON */
+html[data-theme="dark"] .theme-option-icon {
+    font-size: 27px;
+    flex-shrink: 0;
+}
+
+/* THEME TEXT */
+html[data-theme="dark"] .theme-option-details {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+html[data-theme="dark"] .theme-option-details strong {
+    color: #ffffff !important;
+    font-size: 15px;
+}
+
+html[data-theme="dark"] .theme-option-details small {
+    display: block;
+    color: #b9c5d6 !important;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* SELECTED THEME STATUS */
+html[data-theme="dark"] .theme-status {
+    background: #173d32;
+    color: #86efac !important;
+    border: 1px solid #28634c;
+    border-radius: 10px;
+    padding: 13px;
+    margin-top: 16px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.5;
+}
+/* ========================================
+   PESOMATE - THEME SELECTION DESIGN
+   LIGHT MODE
+======================================== */
+
+html[data-theme="light"] .theme-selection-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 22px !important;
+    margin-top: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* CARD HEADING */
+html[data-theme="light"] .theme-selection-card h3 {
+    color: #142747 !important;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+html[data-theme="light"] .theme-selection-card > p {
+    color: #718096 !important;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* THEME OPTIONS */
+html[data-theme="light"] .theme-option {
+    display: flex !important;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #f4f7fb;
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+/* RADIO BUTTON */
+html[data-theme="light"] .theme-option input {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    accent-color: #1976e9;
+}
+
+/* THEME ICON */
+html[data-theme="light"] .theme-option-icon {
+    font-size: 27px;
+    flex-shrink: 0;
+}
+
+/* THEME TEXT */
+html[data-theme="light"] .theme-option-details {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+html[data-theme="light"] .theme-option-details strong {
+    color: #142747 !important;
+    font-size: 15px;
+}
+
+html[data-theme="light"] .theme-option-details small {
+    display: block;
+    color: #718096 !important;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* SELECTED THEME STATUS */
+html[data-theme="light"] .theme-status {
+    background: #e8f5ff;
+    color: #1976e9 !important;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 13px;
+    margin-top: 16px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.5;
+}
+/* ========================================
+   PESOMATE - ABOUT PAGE DESIGN
+======================================== */
+
+/* MAIN ABOUT CARD */
+.about-card {
+    width: 100%;
+    max-width: 700px;
+    margin: 22px auto;
+    padding: 28px 22px !important;
+    border-radius: 20px !important;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* PESOMATE LOGO */
+.about-logo {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1976e9, #092e58);
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 800;
+    border-radius: 22px;
+    box-shadow: 0 6px 15px rgba(25, 118, 233, 0.25);
+}
+
+/* APP NAME */
+.about-card h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+/* TAGLINE */
+.about-tagline {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* DIVIDER */
+.about-divider {
+    width: 65px;
+    height: 4px;
+    margin: 0 auto 22px;
+    background: linear-gradient(90deg, #1976e9, #20b957);
+    border-radius: 10px;
+}
+
+/* SECTION HEADINGS */
+.about-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    margin: 20px 0 8px;
+}
+
+/* DESCRIPTION */
+.about-card p:not(.about-tagline) {
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+/* VERSION */
+.about-version {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #dce3ed;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* LIGHT MODE */
+html[data-theme="light"] .about-card {
+    background: #ffffff !important;
+    color: #142747 !important;
+}
+
+html[data-theme="light"] .about-card h2,
+html[data-theme="light"] .about-card h3,
+html[data-theme="light"] .about-card p {
+    color: #142747 !important;
+}
+
+html[data-theme="light"] .about-tagline,
+html[data-theme="light"] .about-version {
+    color: #718096 !important;
+}
+
+/* DARK MODE */
+html[data-theme="dark"] .about-card {
+    background: #1e293b !important;
+    color: #e8edf5 !important;
+    border: 1px solid #334155;
+}
+
+html[data-theme="dark"] .about-card h2,
+html[data-theme="dark"] .about-card h3,
+html[data-theme="dark"] .about-card p {
+    color: #e8edf5 !important;
+}
+
+html[data-theme="dark"] .about-tagline,
+html[data-theme="dark"] .about-version {
+    color: #b9c5d6 !important;
+}
+
+html[data-theme="dark"] .about-version {
+    border-top-color: #40516a;
+}
+/* DISCREET DEVELOPER CREDIT */
+.about-developer {
+    margin-top: 9px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    text-align: center;
+    opacity: 0.65;
+}
+
+html[data-theme="light"] .about-developer {
+    color: #718096;
+}
+
+html[data-theme="dark"] .about-developer {
+    color: #aab6c8;
+}
+/* ========================================
+   MONEY SURVIVAL CALCULATOR
+   MONEY JAR TEXT VISIBILITY
+======================================== */
+
+/* Fund names */
+.money-jar-card h4 {
+    color: #142747 !important;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/* Allocated amounts */
+.money-jar-card .jar-amount {
+    color: #142747 !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Adjust label */
+.money-jar-card .jar-adjust-controls span {
+    color: #142747 !important;
+    font-weight: 600;
+}
+
+/* Additional fund description */
+.money-jar-card small {
+    color: #52627a !important;
+    font-size: 12px;
+}
+
+/* Keep percentage text visible inside the jars */
+.money-jar-card .jar-percentage strong {
+    color: #ffffff !important;
+}
